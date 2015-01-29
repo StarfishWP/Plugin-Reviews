@@ -28,6 +28,8 @@ The plugin, even though it doesn't have a settings page, offers a handful of opt
 
 ## Hooks
 
+### Filters
+
 - `wr_label_all_reviews`: Label of the "See all reviews" link
 - `wr_label_add_review`: Label of the "Add reviews" link
 - `wr_review_markup`: Single review markup
