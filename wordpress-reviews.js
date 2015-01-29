@@ -1,7 +1,1 @@
-jQuery(document).ready(function ($) {
-	$('.wr-single').on('click', '.wr-truncated-show', function (e) {
-		e.preventDefault();
-		$(this).prev('.wr-truncated').slideDown('fast');
-		$(this).remove();
-	});
-});
+jQuery(document).ready(function(a){a(".wr-single").on("click",".wr-truncated-show",function(b){b.preventDefault(),a(this).prev(".wr-truncated").slideDown("fast"),a(this).remove()})});
