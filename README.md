@@ -21,8 +21,13 @@ The plugin, even though it doesn't have a settings page, offers a handful of opt
 | `sort`                        | `ASC`, `DESC`    | `DESC`            | Sort reviews is an ascending (low to high) or descending (high to low) order                                  |
 | `truncate`                    | *integer*        | 300               | Number of characters to show. Everything after this limit will be hidden and a "Read more" link will be added |
 | `gravatar_size`               | *integer*        | 96                | Size of the Gravatar                                                                                          |
-| `container`                   | HTML container   | div               | Type of container to use to wrap the reviews. Leave blank for no container                                    |
 | `container_class`             |                  | `wr`              | Class of the container. **Will replace the default class which may result in ugly styling.**                  |
 | `container_id`                |                  |                   | ID of the container                                                                                           |
 | `link_all`                    | `yes`, `no`      | `no`              | Whether or not to show a link to the WordPress.org reviews page                                               |
 | `link_add`                    | `yes`, `no`      | `yes`             | Whether or not to show a link to add a new review on WordPress.org                                            |
+
+## Hooks
+
+- `wr_label_all_reviews`: Label of the "See all reviews" link
+- `wr_label_add_review`: Label of the "Add reviews" link
+- `wr_review_markup`: Single review markup
