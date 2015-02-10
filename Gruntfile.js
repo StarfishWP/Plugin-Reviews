@@ -45,6 +45,7 @@ module.exports = function (grunt) {
 						'*',
 						'**',
 						'!.gitignore',
+						'!node_modules/**',
 						'!*.less',
 						'!README.md',
 						'!Gruntfile.js',

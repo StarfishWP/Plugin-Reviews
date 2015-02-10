@@ -40,7 +40,7 @@ class WR_Kimonolabs {
 	 */
 	public function __construct( $plugin_name = 'wordpress-reviews' ) {
 
-		$key               = defined( 'WR_KIMONOLAB_API_KEY' ) && ! empty( WR_KIMONOLAB_API_KEY ) ? WR_KIMONOLAB_API_KEY : 'rwdNB0L9SbSAHdSZB2LiXfO9XSfqB0zz';
+		$key               = defined( 'WR_KIMONOLAB_API_KEY' ) ? WR_KIMONOLAB_API_KEY : 'rwdNB0L9SbSAHdSZB2LiXfO9XSfqB0zz';
 		$this->api_key     = trim( $key );
 		$this->plugin_name = $plugin_name;
 		$this->endpoint    = 'https://www.kimonolabs.com/api/6zkgvl56';
