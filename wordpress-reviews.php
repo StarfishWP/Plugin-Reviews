@@ -130,9 +130,10 @@ class WR_Reviews {
 			'gravatar_size'   => 96,
 			'container'       => 'div',
 			'container_id'    => '',
-			'container_class' => 'wr-grid',
+			'container_class' => '',
 			'link_all'        => 'no',
-			'link_add'        => 'yes'
+			'link_add'        => 'yes',
+			'layout'          => 'grid',
 		);
 
 		return $defaults;
@@ -155,13 +156,27 @@ class WR_Reviews {
 		$parsed         = shortcode_atts( $defaults, $atts );
 		$parsed['sort'] = strtoupper( $parsed['sort'] );
 
-		if ( !in_array( $parsed['sortby'], array( 'rating', 'date' ) ) ) {
+		if ( ! in_array( $parsed['sortby'], array( 'rating', 'date' ) ) ) {
 			$parsed['sort'] = 'rating';
 		}
 
-		if ( !in_array( $parsed['sort'], array( 'ASC', 'DESC' ) ) ) {
+		if ( ! in_array( $parsed['sort'], array( 'ASC', 'DESC' ) ) ) {
 			$parsed['sortby'] = 'DESC';
 		}
+
+		if ( ! in_array( $parsed['layout'], array( 'grid', 'carousel' ) ) ) {
+			$parsed['layout'] = 'grid';
+		}
+
+		$parsed['container_class'] = (array) $parsed['container_class'];
+
+		if ( 'grid' === $parsed['layout'] ) {
+			array_push( $parsed['container_class'], 'wr-grid' );
+		} elseif ( 'carousel' === $parsed['layout'] ) {
+			array_push( $parsed['container_class'], 'wr-carousel' );
+		}
+
+		$parsed['container_class'] = implode( ' ', $parsed['container_class'] );
 
 		$this->atts = $parsed;
 
