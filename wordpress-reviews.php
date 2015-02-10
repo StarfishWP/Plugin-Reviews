@@ -7,8 +7,8 @@
  * @copyright 2014 ThemeAvenue
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Reviews
- * Plugin URI:        http://themeavenue.net
+ * Plugin Name:       WordPress.org Reviews
+ * Plugin URI:        https://github.com/ThemeAvenue/WordPress.org-Reviews
  * Description:       Fetch the reviews from your plugin page on WordPress.org and display them on your site.
  * Version:           0.1.0
  * Author:            ThemeAvenue
