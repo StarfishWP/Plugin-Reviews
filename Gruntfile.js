@@ -28,6 +28,34 @@ module.exports = function (grunt) {
 					"wordpress-reviews.css": "wordpress-reviews.less"
 				}
 			}
+		},
+
+		/**
+		Creates a clean zip archive for production
+		@author https://github.com/gruntjs/grunt-contrib-compress
+		 */
+		compress: {
+			main: {
+				options: {
+					archive: 'wordpress-reviews-<%= pkg.version %>.zip',
+					mode: 'zip'
+				},
+				files: [{
+					src: [
+						'*',
+						'**',
+						'!.gitignore',
+						'!*.less',
+						'!README.md',
+						'!Gruntfile.js',
+						'!package.json',
+						'!wordpress-reviews-src.js',
+						'!*.sublime-workspace',
+						'!*.sublime-project',
+						'!wordpress-reviews-<%= pkg.version %>.zip'
+					]
+				}]
+			}
 		}
 
 	});
