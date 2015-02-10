@@ -95,6 +95,8 @@ class WR_Reviews {
 	 * @return void
 	 */
 	public function load_style() {
+		wp_enqueue_style( 'wr-slick', '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.0/slick.min.css', null, '1.4.0', 'all' );
+		wp_enqueue_style( 'wr-slick-theme', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.0/slick-theme.min.css', null, '1.4.0', 'all' );
 		wp_enqueue_style( 'wr-style', WR_URL . 'wordpress-reviews.css', null, WR_VERSION, 'all' );
 	}
 
@@ -105,7 +107,9 @@ class WR_Reviews {
 	 * @return void
 	 */
 	public function load_script() {
-		wp_enqueue_script( 'wr-script', WR_URL . 'wordpress-reviews.js', array( 'jquery' ), WR_VERSION, true );
+		wp_enqueue_script( 'wr-imagesloaded', '//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js', array( 'jquery' ), '3.1.8', true );
+		wp_enqueue_script( 'wr-slick', '//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.4.0/slick.min.js', array( 'jquery' ), '1.4.0', true );
+		wp_enqueue_script( 'wr-script', WR_URL . 'wordpress-reviews-src.js', array( 'jquery', 'wr-imagesloaded', 'wr-slick' ), WR_VERSION, true );
 	}
 
 	/**
@@ -126,7 +130,7 @@ class WR_Reviews {
 			'gravatar_size'   => 96,
 			'container'       => 'div',
 			'container_id'    => '',
-			'container_class' => 'wr',
+			'container_class' => 'wr-grid',
 			'link_all'        => 'no',
 			'link_add'        => 'yes'
 		);
