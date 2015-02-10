@@ -132,7 +132,7 @@ class WR_Reviews {
 			'container_id'    => '',
 			'container_class' => '',
 			'link_all'        => 'no',
-			'link_add'        => 'yes',
+			'link_add'        => 'no',
 			'layout'          => 'grid',
 		);
 
