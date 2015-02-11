@@ -243,12 +243,12 @@ class WR_Reviews {
 
 		$stars = intval( $this->atts['rating'] );
 
-		if ( 1 <= $stars && 5 <= $stars ) {
+		if ( $stars >= 1 && $stars <= 5 ) {
 
 			$new = array();
 
 			foreach ( $this->reviews as $key => $review ) {
-				if ( $review['rating'] >= $stars ) {
+				if ( intval( $review['rating'] ) >= $stars ) {
 					$new[] = $review;
 				}
 			}
