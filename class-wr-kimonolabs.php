@@ -38,7 +38,7 @@ class WR_Kimonolabs {
 	 * 
 	 * @param string $plugin_name Slug of the plugin to fetch
 	 */
-	public function __construct( $plugin_name = 'wordpress-reviews' ) {
+	public function __construct( $plugin_name = 'wporg-reviews' ) {
 
 		$key               = defined( 'WR_KIMONOLAB_API_KEY' ) ? WR_KIMONOLAB_API_KEY : 'rwdNB0L9SbSAHdSZB2LiXfO9XSfqB0zz';
 		$this->api_key     = trim( $key );
