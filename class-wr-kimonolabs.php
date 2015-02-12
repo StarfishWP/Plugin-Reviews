@@ -66,6 +66,7 @@ class WR_Kimonolabs {
 			'httpversion' => '1.0',
 			'blocking'    => true,
 			'headers'     => array(),
+			'sslverify'   => false
 		);
 
 		$response = wp_remote_request( $this->get_query(), $args );
