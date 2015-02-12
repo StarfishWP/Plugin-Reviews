@@ -202,6 +202,10 @@ class WR_Reviews {
 		$response = new WR_Kimonolabs( $plugin_slug );
 		$list     = $response->get_reviews();
 
+		if ( is_wp_error( $list ) ) {
+			return sprintf( __( 'An error occured. You can <a href="%s">check out all the reviews on WordPress.org</a>', 'wordpress-reviews' ), esc_url( "https://wordpress.org/support/view/plugin-reviews/$plugin_slug" ) );
+		}
+
 		foreach ( $list as $review ) {
 
 			$this_review = new WR_Review( $review, $this->atts['gravatar_size'], $this->atts['truncate'] );
