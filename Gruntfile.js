@@ -45,6 +45,7 @@ module.exports = function (grunt) {
 						'*',
 						'**',
 						'!.gitignore',
+						'!.svn/**',
 						'!node_modules/**',
 						'!*.less',
 						'!README.md',
