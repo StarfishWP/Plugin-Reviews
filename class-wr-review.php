@@ -86,7 +86,7 @@ class WR_Review {
 		$tags['review']       = false === $this->trim_content ? $this->review['content'] : $this->truncate();
 		$tags['title']        = $this->review['title'];
 		$tags['date']         = $this->review['date'];
-		$tags['rating']       = $this->review['rating'];
+		$tags['rating']       = substr( $this->review['rating'], 0, 1 );
 
 		return $tags;
 
