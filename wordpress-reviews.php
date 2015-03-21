@@ -64,7 +64,7 @@ class WR_Reviews {
 
 	public function __construct() {
 
-		require_once( WR_PATH . 'class-wr-kimonolabs.php' );
+		require_once( WR_PATH . 'class-wr-wordpress-plugin.php' );
 		require_once( WR_PATH . 'class-wr-review.php' );
 
 		add_action( 'wp_print_styles',  array( $this, 'load_style' ) );
@@ -199,7 +199,7 @@ class WR_Reviews {
 		extract( $this->parse_attributes( $atts ) );
 
 		$reviews  = array();
-		$response = new WR_Kimonolabs( $plugin_slug );
+		$response = new WR_WordPress_Plugin( $plugin_slug );
 		$list     = $response->get_reviews();
 
 		if ( is_wp_error( $list ) ) {
@@ -400,4 +400,3 @@ class WR_Reviews {
 	}
 
 }
-
