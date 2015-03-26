@@ -1,4 +1,4 @@
-=== WordPress.org Reviews ===
+=== Plugin Reviews ===
 Contributors: themeavenue,julien731,SiamKreative
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KADEESTQ9H3GW
 Tags: wordpress,reviews,rating
@@ -8,7 +8,7 @@ Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Display the reviews of your plugin fetched from WordPress.org on your site.
+Display WordPress.org reviews of any plugin on your site.
 
 == Description ==
 
@@ -18,7 +18,7 @@ Simply provide your plugin's slug (on WordPress.org) and the plugin will fetch t
 
 By default, all reviews from WordPress.org are cached for 24 hours.
 
-All shortcode parameters are listed on the [GitHub repo](https://github.com/ThemeAvenue/WordPress.org-Reviews).
+All shortcode parameters are listed on the [GitHub repo](https://github.com/ThemeAvenue/Plugin-Reviews).
 
 = Demo =
 
@@ -39,7 +39,7 @@ We're pretty busy, so feel free to contribute if you like the plugin :)
 
 = Contributing Guidelines =
 
-* Head over to our [Github Repo](https://github.com/ThemeAvenue/WordPress.org-Reviews)
+* Head over to our [Github Repo](https://github.com/ThemeAvenue/Plugin-Reviews)
 * Forks and create pull requests are encouraged
 * Submit issues if you find any
 * Spread the word on Twitter & Facebook :)
@@ -47,12 +47,6 @@ We're pretty busy, so feel free to contribute if you like the plugin :)
 == Installation ==
 
 You're a developer. You know ;)
-
-== Frequently Asked Questions ==
-
-= Can I use my own KimonoLabs API key? =
-
-Yes you can. Just define a new constant called `WR_KIMONOLAB_API_KEY` with your API key (most likely in your theme's `functions.php`).
 
 == Screenshots ==
 
