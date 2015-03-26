@@ -1,36 +1,63 @@
-# Plugin Reviews
+# Plugin Reviews #
+**Contributors:** themeavenue,julien731,SiamKreative  
+**Donate link:** https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KADEESTQ9H3GW  
+**Tags:** wordpress,reviews,rating  
+**Requires at least:** 3.8  
+**Tested up to:** 3.4  
+**Stable tag:** 0.1.0  
+**License:** GPLv2 or later  
+**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-The plugin fetches reviews of any plugin on the WordPress Extend and shows them nicely formatted in your site.
+Display WordPress.org reviews of any plugin on your site.
 
-It is super simple and only requires a shortcode to work. No option page, no messy settings. Everything is done through the shortcode ( and a couple of filters if you need ;) ).
+## Description ##
 
-Once you installed the plugin, just create a new page and paste the shortcode `[wr_reviews plugin_slug="my-plugin-slug"]`. That's all! It is already working.
+**A tiny plugin to help you **showcase your WordPress.org reviews on your site**. It offers two different layouts:** grid and carousel.  
 
-The one and only required shortcode attribute is `plugin_slug`. This is what tells the system which plugin to fetch the reviews from. It should match the slug in your plugin page's URL (eg. https://wordpress.org/plugins/wordpress-reviews/, where `wordpress-reviews` is the slug).
+Simply provide your plugin's slug (on WordPress.org) and the plugin will fetch the reviews, and display them. For instance, if you want to get the reviews for the plugin [Awesome Support](https://wordpress.org/support/plugin/awesome-support), the slug is `awesome-support`.
 
-## Shortcode Attributes
+By default, all reviews from WordPress.org are cached for 24 hours.
 
-The plugin, even though it doesn't have a settings page, offers a handful of options through shortcode attributes. Here is the list of available attributes.
+All shortcode parameters are listed on the [GitHub repo](https://github.com/ThemeAvenue/Plugin-Reviews).
 
-| Attribute                     | Values            | Default           | Description                                                                                                   |
-|-------------------------------|-------------------|-------------------|---------------------------------------------------------------------------------------------------------------|
-| `plugin_slug` **(mandatory)** |                   | wordpress-reviews | Slug of your plugin as it appears in the plugin page's URL                                                    |
-| `rating`                      | 1-5, `all`        | `all`             | Only show reviews with a certain rating up. For instance, defining 3 will show reviews rated 3+               |
-| `limit`                       | *integer*         | 10                | Number of reviews to show                                                                                     |
-| `sortby`                      | `date`, `rating`  | `date`            | How to sort the reviews                                                                                       |
-| `sort`                        | `ASC`, `DESC`     | `DESC`            | Sort reviews is an ascending (low to high) or descending (high to low) order                                  |
-| `truncate`                    | *integer*         | 300               | Number of characters to show. Everything after this limit will be hidden and a "Read more" link will be added |
-| `gravatar_size`               | *integer*         | 96                | Size of the Gravatar                                                                                          |
-| `container_class`             |                   |                   | Class of the container                                                                                        |
-| `container_id`                |                   |                   | ID of the container                                                                                           |
-| `link_all`                    | `yes`, `no`       | `no`              | Whether or not to show a link to the WordPress.org reviews page                                               |
-| `link_add`                    | `yes`, `no`       | `yes`             | Whether or not to show a link to add a new review on WordPress.org                                            |
-| `layout`                      | `grid`, `carousel`| `grid`            | The layout to use. Carousel layout uses [Slick](http://kenwheeler.github.io/slick/)                           |
+### Demo ###
 
-## Hooks
+**You can see it working here:** http://getawesomesupport.com/reviews. We use the Carousel Layout.  
 
-### Filters
+### Roadmap ###
+We're pretty busy, so feel free to contribute if you like the plugin :)
 
-- `wr_label_all_reviews`: Label of the "See all reviews" link
-- `wr_label_add_review`: Label of the "Add reviews" link
-- `wr_review_markup`: Single review markup
+* Make carousel options available from within the shortcode (items to show, items to scroll, duration, etc.)
+* Make it work with AJAX to avoid long page load (for the first call to the API)
+* Add styling options for grid?
+* Add styling options for carousel?
+* Add a way to disable style completely
+* Add a way to change the prefix from `wr-` to `whatever` (applies to every elements)
+* Add loading spinner while fetching data / preloading avatars
+* Loading carousel styles & scripts only if chosen layout is carousel
+* Add fallback if error retrieving data from KimonoLabs (link to plugin's reviews page)
+
+### Contributing Guidelines ###
+
+* Head over to our [Github Repo](https://github.com/ThemeAvenue/Plugin-Reviews)
+* Forks and create pull requests are encouraged
+* Submit issues if you find any
+* Spread the word on Twitter & Facebook :)
+
+## Installation ##
+
+You're a developer. You know ;)
+
+## Screenshots ##
+
+### 1. WordPress.org Reviews, Grid Layout ###
+![WordPress.org Reviews, Grid Layout](http://s.wordpress.org/extend/plugins/plugin-reviews/screenshot-1.png)
+
+### 2. WordPress.org Reviews, Carousel Layout ###
+![WordPress.org Reviews, Carousel Layout](http://s.wordpress.org/extend/plugins/plugin-reviews/screenshot-2.png)
+
+
+## Changelog ##
+
+### 0.1.0 ###
+* First release
