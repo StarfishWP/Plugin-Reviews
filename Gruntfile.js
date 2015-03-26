@@ -8,13 +8,13 @@ module.exports = function (grunt) {
 		pkg: grunt.file.readJSON("package.json"),
 
 		jshint: {
-			all: ['Gruntfile.js', 'wordpress-reviews-src.js']
+			all: ['Gruntfile.js', 'plugin-reviews-src.js']
 		},
 
 		uglify: {
 			global: {
 				files: {
-					"wordpress-reviews.js": ["wordpress-reviews-src.js"]
+					"plugin-reviews.js": ["plugin-reviews-src.js"]
 				}
 			}
 		},
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 					cleancss: true
 				},
 				files: {
-					"wordpress-reviews.css": "wordpress-reviews.less"
+					"plugin-reviews.css": "plugin-reviews.less"
 				}
 			}
 		},
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
 		compress: {
 			main: {
 				options: {
-					archive: 'wordpress-reviews-<%= pkg.version %>.zip',
+					archive: 'plugin-reviews-<%= pkg.version %>.zip',
 					mode: 'zip'
 				},
 				files: [{
@@ -51,10 +51,10 @@ module.exports = function (grunt) {
 						'!README.md',
 						'!Gruntfile.js',
 						'!package.json',
-						'!wordpress-reviews-src.js',
+						'!plugin-reviews-src.js',
 						'!*.sublime-workspace',
 						'!*.sublime-project',
-						'!wordpress-reviews-<%= pkg.version %>.zip'
+						'!plugin-reviews-<%= pkg.version %>.zip'
 					]
 				}]
 			}
