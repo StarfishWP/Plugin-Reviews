@@ -1,13 +1,13 @@
 <?php
 /**
- * @package   WordPress Reviews
+ * @package   Plugin Reviews
  * @author    ThemeAvenue <web@themeavenue.net>
  * @license   GPL-2.0+
  * @link      http://themeavenue.net
  * @copyright 2014 ThemeAvenue
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress.org Reviews
+ * Plugin Name:       Plugin Reviews
  * Plugin URI:        https://github.com/ThemeAvenue/WordPress.org-Reviews
  * Description:       Fetch the reviews from your plugin page on WordPress.org and display them on your site.
  * Version:           0.1.0
@@ -97,7 +97,7 @@ class WR_Reviews {
 	public function load_style() {
 		wp_enqueue_style( 'wr-slick', WR_URL . 'vendor/slick/slick.css', null, '1.4.1', 'all' );
 		wp_enqueue_style( 'wr-slick-theme', WR_URL . 'vendor/slick/slick-theme.css', null, '1.4.1', 'all' );
-		wp_enqueue_style( 'wr-style', WR_URL . 'wordpress-reviews.css', null, WR_VERSION, 'all' );
+		wp_enqueue_style( 'wr-style', WR_URL . 'plugin-reviews.css', null, WR_VERSION, 'all' );
 	}
 
 	/**
@@ -109,7 +109,7 @@ class WR_Reviews {
 	public function load_script() {
 		wp_enqueue_script( 'wr-imagesloaded', WR_URL . 'vendor/imagesloaded/imagesloaded.pkgd.min.js', array( 'jquery' ), '3.1.8', true );
 		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.4.1', true );
-		wp_enqueue_script( 'wr-script', WR_URL . 'wordpress-reviews.js', array( 'jquery', 'wr-imagesloaded', 'wr-slick' ), WR_VERSION, true );
+		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-imagesloaded', 'wr-slick' ), WR_VERSION, true );
 	}
 
 	/**
