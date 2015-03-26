@@ -1,4 +1,4 @@
-# WordPress.org Reviews
+# Plugin Reviews
 
 The plugin fetches reviews of any plugin on the WordPress Extend and shows them nicely formatted in your site.
 
