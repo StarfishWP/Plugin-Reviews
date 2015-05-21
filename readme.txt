@@ -3,8 +3,8 @@ Contributors: themeavenue,julien731,SiamKreative
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KADEESTQ9H3GW
 Tags: wordpress,reviews,rating
 Requires at least: 3.8
-Tested up to: 3.4
-Stable tag: 0.1.0
+Tested up to: 4.3
+Stable tag: 0.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ All shortcode parameters are [listed here](https://github.com/ThemeAvenue/Plugin
 You can see it working here: http://getawesomesupport.com/reviews. We use the Carousel Layout.
 
 = Roadmap =
+
 We're pretty busy, so feel free to contribute if you like the plugin :)
 
 * Make carousel options available from within the shortcode (items to show, items to scroll, duration, etc.)
