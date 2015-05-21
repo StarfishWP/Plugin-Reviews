@@ -93,6 +93,7 @@ module.exports = function (grunt) {
 						'!node_modules/**',
 						'!*.less',
 						'!readme.md',
+						'!contributing.md',
 						'!Gruntfile.js',
 						'!package.json',
 						'!plugin-reviews-src.js',
