@@ -92,7 +92,7 @@ module.exports = function (grunt) {
 						'!.svn/**',
 						'!node_modules/**',
 						'!*.less',
-						'!readme.md',
+						'!README.md',
 						'!contributing.md',
 						'!Gruntfile.js',
 						'!package.json',
