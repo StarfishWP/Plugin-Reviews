@@ -25,7 +25,7 @@ We're pretty busy, so feel free to contribute if you like the plugin :) You can 
 ## Screenshots ##
 
 ### 1. WordPress.org Reviews, Grid Layout ###
-![WordPress.org Reviews, Grid Layout](http://s.wordpress.org/extend/plugins/plugin-reviews/screenshot-1.png)
+![WordPress.org Reviews, Grid Layout](https://ps.w.org/plugin-reviews/assets/screenshot-1.png)
 
 ### 2. WordPress.org Reviews, Carousel Layout ###
-![WordPress.org Reviews, Carousel Layout](http://s.wordpress.org/extend/plugins/plugin-reviews/screenshot-2.png)
+![WordPress.org Reviews, Carousel Layout](https://ps.w.org/plugin-reviews/assets/screenshot-2.png)
