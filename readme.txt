@@ -18,7 +18,15 @@ Simply provide your plugin's slug (on WordPress.org) and the plugin will fetch t
 
 By default, all reviews from WordPress.org are cached for 24 hours.
 
-All shortcode parameters are [listed here](https://github.com/ThemeAvenue/Plugin-Reviews/wiki/Shortcode-Attributes).
+= Shortcode =
+
+You need to use the following shortcode:
+
+`
+[wr_reviews]
+`
+
+The shortcode can be used anywhere on your site, and even on multiple pages/posts. All shortcode parameters are [listed here](https://github.com/ThemeAvenue/Plugin-Reviews/wiki/Shortcode-Attributes).
 
 = Demo =
 
