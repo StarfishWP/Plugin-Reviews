@@ -36,7 +36,6 @@ We're pretty busy, so feel free to contribute if you like the plugin :)
 * Add a way to change the prefix from `wr-` to `whatever` (applies to every elements)
 * Add loading spinner while fetching data / preloading avatars
 * Loading carousel styles & scripts only if chosen layout is carousel
-* Add fallback if error retrieving data from KimonoLabs (link to plugin's reviews page)
 
 = Contributing Guidelines =
 
