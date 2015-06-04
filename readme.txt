@@ -41,7 +41,7 @@ We're pretty busy, so feel free to contribute if you like the plugin :)
 = Contributing Guidelines =
 
 * Head over to our [Github Repo](https://github.com/ThemeAvenue/Plugin-Reviews)
-* Forks and create pull requests are encouraged
+* Pull requests are encouraged
 * Submit issues if you find any
 * Spread the word on Twitter & Facebook :)
 
@@ -55,6 +55,9 @@ You're a developer. You know ;)
 2. WordPress.org Reviews, Carousel Layout
 
 == Changelog ==
+
+= 0.2.0 =
+* Refactor the plugin to use the WordPress.org API
 
 = 0.1.0 =
 * First release
