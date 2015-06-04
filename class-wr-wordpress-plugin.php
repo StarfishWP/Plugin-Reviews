@@ -38,7 +38,7 @@ class WR_WordPress_Plugin {
 	 * 
 	 * @param string $plugin_name Slug of the plugin to fetch
 	 */
-	public function __construct( $plugin_name = 'wporg-reviews' ) {
+	public function __construct( $plugin_name = 'plugin-reviews' ) {
 		$this->plugin_name = $plugin_name;
 	}
 

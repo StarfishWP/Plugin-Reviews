@@ -121,7 +121,7 @@ class WR_Reviews {
 	public static function default_attributes() {
 
 		$defaults = array(
-			'plugin_slug'     => 'wordpress-reviews',
+			'plugin_slug'     => 'plugin-reviews',
 			'rating'          => 'all',
 			'limit'           => 10,
 			'sortby'          => 'date',
