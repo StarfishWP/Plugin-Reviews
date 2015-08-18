@@ -329,10 +329,10 @@ class WR_Reviews {
 	 * Get all the reviews with final markup.
 	 *
 	 * This function returns an array of all the reviews with the final
-	 * markup (including conveted template tags).
+	 * markup (including converted template tags).
 	 *
 	 * @since  0.1.0
-	 * @return array List of all the reveiws
+	 * @return array List of all the reviews
 	 */
 	public function get_reviews() {
 
