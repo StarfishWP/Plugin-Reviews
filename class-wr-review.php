@@ -147,11 +147,18 @@ class WR_Review {
 		
 		$size = intval( $args['s'] );
 
-		if ( $size === $this->gravatar_size ) {
-			return $url;
+		if ( $size !== $this->gravatar_size ) {
+			$args['s'] = $this->gravatar_size;
 		}
 
-		$args['s'] = $this->gravatar_size;
+		/**
+		 * If the requested size is the default (80)
+		 * we remove the size query string for PageSpeed
+		 * improvement
+		 */
+		if ( 80 === (int) $args['s'] ) {
+			unset( $args['s'] );
+		}
 
 		return add_query_arg( $args, $base );
 
