@@ -17,10 +17,11 @@ class WR_Review {
 	 */
 	protected $review;
 
-	public function __construct( $review, $gravatar_size = 96, $trim_content = false ) {
-		$this->review        = $review;
-		$this->gravatar_size = $gravatar_size;
-		$this->trim_content  = $trim_content;
+	public function __construct( $review, $gravatar_size = 80, $trim_content = false, $no_query_string = false ) {
+		$this->review          = $review;
+		$this->gravatar_size   = $gravatar_size;
+		$this->trim_content    = $trim_content;
+		$this->no_query_string = (bool) $no_query_string;
 	}
 
 	/**
@@ -142,6 +143,14 @@ class WR_Review {
 
 		$url  = $this->review['avatar']['src'];
 		$base = strtok( $url, '?' );
+
+		/**
+		 * Remove all query strings if enabled.
+		 * This allows for performance improvements.
+		 */
+		if ( true === $this->no_query_string ) {
+			return esc_url( $base );
+		}
 
 		parse_str( parse_url( $url, PHP_URL_QUERY ), $args );
 		

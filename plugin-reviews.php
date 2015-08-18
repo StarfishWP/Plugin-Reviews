@@ -134,6 +134,7 @@ class WR_Reviews {
 			'link_all'        => 'no',
 			'link_add'        => 'no',
 			'layout'          => 'grid',
+			'no_query_string' => '0',
 		);
 
 		return $defaults;
@@ -208,7 +209,7 @@ class WR_Reviews {
 
 		foreach ( $list as $review ) {
 
-			$this_review = new WR_Review( $review, $this->atts['gravatar_size'], $this->atts['truncate'] );
+			$this_review = new WR_Review( $review, $this->atts['gravatar_size'], $this->atts['truncate'], $no_query_string );
 			$this_output = $this_review->get_review();
 
 			$this->add_review( $this_output );
