@@ -197,10 +197,9 @@ class WR_Reviews {
 	 */
 	public function shortcode( $atts ) {
 
-		extract( $this->parse_attributes( $atts ) );
+		$atts = $this->parse_attributes( $atts );
 
-		$reviews  = array();
-		$response = new WR_WordPress_Plugin( $plugin_slug );
+		$response = new WR_WordPress_Plugin( $atts['plugin_slug'] );
 		$list     = $response->get_reviews();
 
 		if ( is_wp_error( $list ) ) {
@@ -209,7 +208,7 @@ class WR_Reviews {
 
 		foreach ( $list as $review ) {
 
-			$this_review = new WR_Review( $review, $this->atts['gravatar_size'], $this->atts['truncate'], $no_query_string );
+			$this_review = new WR_Review( $review, $this->atts['gravatar_size'], $this->atts['truncate'], $atts['no_query_string'] );
 			$this_output = $this_review->get_review();
 
 			$this->add_review( $this_output );

@@ -186,7 +186,7 @@ class WR_WordPress_Plugin {
 	 *
 	 * @since  0.1.0
 	 * @param  string $html String containing an image tag
-	 * @return strign       Image source
+	 * @return string       Image source
 	 */
 	protected function get_image_src( $html ) {
 

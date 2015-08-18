@@ -122,7 +122,7 @@ class WR_Review {
 	 */
 	public function convert_tags() {
 
-		$markup = $output = $this->get_review_markup();
+		$output = $this->get_review_markup();
 		$tags   = $this->tags();
 
 		foreach ( $tags as $tag => $value ) {
