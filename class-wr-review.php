@@ -148,7 +148,7 @@ class WR_Review {
 		 * Remove all query strings if enabled.
 		 * This allows for performance improvements.
 		 */
-		if ( true === $this->no_query_string ) {
+		if ( defined( 'WR_NO_QUERY_STRING' ) && true === WR_NO_QUERY_STRING || true === $this->no_query_string ) {
 			return esc_url( $base );
 		}
 
