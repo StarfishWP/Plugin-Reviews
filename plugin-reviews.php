@@ -127,7 +127,7 @@ class WR_Reviews {
 			'sortby'          => 'date',
 			'sort'            => 'DESC',
 			'truncate'        => 300,
-			'gravatar_size'   => 96,
+			'gravatar_size'   => 80,
 			'container'       => 'div',
 			'container_id'    => '',
 			'container_class' => '',
