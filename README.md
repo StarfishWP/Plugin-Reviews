@@ -12,7 +12,7 @@ Display WordPress.org reviews of any plugin on your site.
 
 ## Description ##
 
-**A tiny plugin to help you **showcase your WordPress.org reviews on your site**. It offers two different layouts:** grid and carousel.  
+A tiny plugin to help you **showcase your WordPress.org reviews on your site**. It offers two different layouts: grid and carousel.
 
 Simply provide your plugin's slug (on WordPress.org) and the plugin will fetch the reviews, and display them. For instance, if you want to get the reviews for the plugin [Awesome Support](https://wordpress.org/support/plugin/awesome-support), the slug is `awesome-support`.
 
@@ -22,15 +22,15 @@ By default, all reviews from WordPress.org are cached for 24 hours.
 
 You need to use the following shortcode:
 
-`
-[wr_reviews]
-`
+
+	[wr_reviews]
+
 
 The shortcode can be used anywhere on your site, and even on multiple pages/posts. All shortcode parameters are [listed here](https://github.com/ThemeAvenue/Plugin-Reviews/wiki/Shortcode-Attributes).
 
 ### Demo ###
 
-**You can see it working here:** http://getawesomesupport.com/reviews. We use the Carousel Layout.  
+You can see it working here: http://getawesomesupport.com/reviews. We use the Carousel Layout.
 
 ### Roadmap ###
 
@@ -59,10 +59,10 @@ You're a developer. You know ;)
 ## Screenshots ##
 
 ### 1. WordPress.org Reviews, Grid Layout ###
-![WordPress.org Reviews, Grid Layout](http://s.wordpress.org/extend/plugins/plugin-reviews/screenshot-1.png)
+![WordPress.org Reviews, Grid Layout](http://ps.w.org/plugin-reviews/assets/screenshot-1.png)
 
 ### 2. WordPress.org Reviews, Carousel Layout ###
-![WordPress.org Reviews, Carousel Layout](http://s.wordpress.org/extend/plugins/plugin-reviews/screenshot-2.png)
+![WordPress.org Reviews, Carousel Layout](http://ps.w.org/plugin-reviews/assets/screenshot-2.png)
 
 
 ## Changelog ##
