@@ -23,7 +23,20 @@ jQuery(document).ready(function ($) {
 				arrows: true,
 				adaptiveHeight: true,
 				autoplay: true,
-				autoplaySpeed: 5000
+				autoplaySpeed: 5000,
+				responsive: [{
+					breakpoint: 992,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 2
+					}
+				}, {
+					breakpoint: 768,
+					settings: {
+						slidesToShow: 1,
+						slidesToScroll: 1
+					}
+				}]
 			});
 		});
 	}
