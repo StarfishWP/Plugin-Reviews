@@ -95,8 +95,8 @@ class WR_Reviews {
 	 * @return void
 	 */
 	public function load_style() {
-		wp_enqueue_style( 'wr-slick', WR_URL . 'vendor/slick/slick.css', null, '1.4.1', 'all' );
-		wp_enqueue_style( 'wr-slick-theme', WR_URL . 'vendor/slick/slick-theme.css', null, '1.4.1', 'all' );
+		wp_enqueue_style( 'wr-slick', WR_URL . 'vendor/slick/slick.css', null, '1.5.8', 'all' );
+		wp_enqueue_style( 'wr-slick-theme', WR_URL . 'vendor/slick/slick-theme.css', null, '1.5.8', 'all' );
 		wp_enqueue_style( 'wr-style', WR_URL . 'plugin-reviews.css', null, WR_VERSION, 'all' );
 	}
 
@@ -107,7 +107,7 @@ class WR_Reviews {
 	 * @return void
 	 */
 	public function load_script() {
-		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.4.1', true );
+		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.5.8', true );
 		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-slick' ), WR_VERSION, true );
 	}
 
