@@ -107,9 +107,8 @@ class WR_Reviews {
 	 * @return void
 	 */
 	public function load_script() {
-		wp_enqueue_script( 'wr-imagesloaded', WR_URL . 'vendor/imagesloaded/imagesloaded.pkgd.min.js', array( 'jquery' ), '3.1.8', true );
 		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.4.1', true );
-		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-imagesloaded', 'wr-slick' ), WR_VERSION, true );
+		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-slick' ), WR_VERSION, true );
 	}
 
 	/**

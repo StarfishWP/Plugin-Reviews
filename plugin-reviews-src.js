@@ -13,31 +13,30 @@ jQuery(document).ready(function ($) {
 	http://kenwheeler.github.io/slick/
 	*/
 	var carousel = $('.wr-carousel');
-	if (jQuery().imagesLoaded && jQuery().slick && carousel.length) {
-		carousel.imagesLoaded(function () {
-			carousel.fadeIn(400).slick({
-				infinite: true,
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				dots: true,
-				arrows: true,
-				adaptiveHeight: true,
-				autoplay: true,
-				autoplaySpeed: 5000,
-				responsive: [{
-					breakpoint: 992,
-					settings: {
-						slidesToShow: 2,
-						slidesToScroll: 2
-					}
-				}, {
-					breakpoint: 768,
-					settings: {
-						slidesToShow: 1,
-						slidesToScroll: 1
-					}
-				}]
-			});
+	if (jQuery().slick && carousel.length) {
+		carousel.fadeIn(400).slick({
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			dots: true,
+			arrows: true,
+			adaptiveHeight: true,
+			autoplay: true,
+			autoplaySpeed: 5000,
+			lazyLoad: 'ondemand',
+			responsive: [{
+				breakpoint: 992,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 2
+				}
+			}, {
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+			}]
 		});
 	}
 });
