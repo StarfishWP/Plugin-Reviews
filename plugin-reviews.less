@@ -53,6 +53,37 @@ General Style
 		position: relative;
 		bottom: 0px;
 	}
+	@media (max-width: 768px) {
+		.slick-prev,
+		.slick-next {
+			top: 0;
+			margin-top: 0;
+		}
+		.slick-prev {
+			left: 50%;
+			margin-left: -35px;
+		}
+		.slick-next {
+			right: 50%;
+			margin-right: -35px;
+		}
+	}
+	@media (max-width: 992px) {
+		.slick-prev,
+		.slick-next {
+			width: 30px;
+			height: 30px;
+		}
+		.slick-prev:before,
+		.slick-next:before {
+			font-size: 30px;
+		}
+	}
+}
+@media (max-width: 768px) {
+	.slick-slider {
+		padding-top: 40px;
+	}
 }
 .wr-single {
 	text-align: center;
