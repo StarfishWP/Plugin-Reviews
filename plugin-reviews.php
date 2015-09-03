@@ -131,8 +131,9 @@ class WR_Reviews {
 	 * @return void
 	 */
 	public static function load_script() {
+		wp_enqueue_script( 'wr-echo', WR_URL . 'vendor/echo/echo.min.js', array( 'jquery' ), '1.7.3', true );
 		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.5.8', true );
-		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-slick' ), WR_VERSION, true );
+		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-echo', 'wr-slick' ), WR_VERSION, true );
 	}
 
 	/**

@@ -1,4 +1,8 @@
 jQuery(document).ready(function ($) {
+
+	var grid = $('.wr-grid');
+	var carousel = $('.wr-carousel');
+
 	/*
 	Truncate testimonials
 	 */
@@ -12,7 +16,6 @@ jQuery(document).ready(function ($) {
 	Carousel for Testimonials
 	http://kenwheeler.github.io/slick/
 	*/
-	var carousel = $('.wr-carousel');
 	if (jQuery().slick && carousel.length) {
 		carousel.fadeIn(400).slick({
 			infinite: true,
@@ -39,4 +42,17 @@ jQuery(document).ready(function ($) {
 			}]
 		});
 	}
+
+	/*
+	Lazy Load for Grid Layout
+	https://github.com/toddmotto/echo
+	 */
+	if (typeof echo != 'undefined' && grid.length) {
+		echo.init({
+			callback: function (element, op) {
+				$(element).parent('.wr-avatar-wrap').css('background', 'none');
+			}
+		});
+	}
+
 });
