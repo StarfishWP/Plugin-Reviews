@@ -54,7 +54,7 @@ class WR_WordPress_Plugin {
 	protected function get_plugin_information() {
 
 		if ( ! function_exists( 'plugins_api' ) ) {
-			$admin_path = trailingslashit( str_replace( get_bloginfo( 'url' ) . '/', ABSPATH, get_admin_url() ) );
+			$admin_path = trailingslashit( str_replace( site_url() . '/', ABSPATH, get_admin_url() ) );
 			require_once( $admin_path . 'includes/plugin-install.php' );
 		}
 
