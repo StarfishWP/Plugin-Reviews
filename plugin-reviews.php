@@ -119,8 +119,8 @@ class WR_Reviews {
 	/**
 	 * Load the plugin text domain for translation.
 	 *
+	 * @since    0.1.1
 	 * @return boolean True if the language file was loaded, false otherwise
-	 * @since    1.0.0
 	 */
 	public static function load_plugin_textdomain() {
 		load_plugin_textdomain( 'wordpress-reviews', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
