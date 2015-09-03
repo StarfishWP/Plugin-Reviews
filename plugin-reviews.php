@@ -149,6 +149,7 @@ class WR_Reviews {
 			'link_add'        => 'no',
 			'layout'          => 'grid',
 			'no_query_string' => '0',
+			'exclude'         => '',
 		);
 
 		return $defaults;
@@ -282,6 +283,55 @@ class WR_Reviews {
 	}
 
 	/**
+	 * Remove reviews from excluded users
+	 *
+	 * @since 0.1.1
+	 * @return array Reviews
+	 */
+	protected function exclude() {
+
+		if ( empty( $this->atts['exclude'] ) ) {
+			return $this->reviews;
+		}
+
+		$excludes = explode( ',', $this->atts['exclude'] );
+		$new      = array();
+
+		foreach ( $this->reviews as $key => $review ) {
+
+			$username = $this->get_username( $review );
+
+			if ( ! in_array( $username, $excludes ) ) {
+				$new[] = $review;
+			}
+
+		}
+
+		$this->reviews = $new;
+
+		return $new;
+
+	}
+
+	/**
+	 * Get reviewer username
+	 *
+	 * @since 0.1.1
+	 *
+	 * @param array $review Review to get username from
+	 *
+	 * @return string Username
+	 */
+	protected function get_username( $review ) {
+
+		$url    = $review['username']['href']; // Get username from URL as the actual username returned by WordPress is a nice name and not the username
+		$pieces = explode( '/', $url );
+
+		return sanitize_text_field( $pieces[ count( $pieces ) - 1 ] );
+
+	}
+
+	/**
 	 * Sort the reviews.
 	 *
 	 * @since  0.1.0
@@ -353,6 +403,7 @@ class WR_Reviews {
 		$this->reviews_backup = $this->reviews;
 
 		$this->filter();
+		$this->exclude();
 		$this->sort_reviews();
 		$this->limit();
 
