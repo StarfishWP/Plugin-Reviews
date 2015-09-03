@@ -32,6 +32,11 @@ define( 'WR_URL',     trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'WR_PATH',    trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 /**
+ * Load textdomain
+ */
+add_action( 'plugins_loaded', array( 'WR_Reviews', 'load_plugin_textdomain' ), 10, 0 );
+
+/**
  * Instanciate the plugin
  */
 add_action( 'wp', array( 'WR_Reviews', 'get_instance' ) );
@@ -109,6 +114,16 @@ class WR_Reviews {
 	public function load_script() {
 		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.5.8', true );
 		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-slick' ), WR_VERSION, true );
+	}
+
+	/**
+	 * Load the plugin text domain for translation.
+	 *
+	 * @return boolean True if the language file was loaded, false otherwise
+	 * @since    1.0.0
+	 */
+	public static function load_plugin_textdomain() {
+		load_plugin_textdomain( 'wordpress-reviews', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 	}
 
 	/**
