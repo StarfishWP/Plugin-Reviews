@@ -103,10 +103,11 @@ class WR_Review {
 			return $content;
 		}
 
-		$content = wordwrap( $content, $length );
-		$content = explode( "\n", $content, 2 );
-		$trimmed = $content[0] . ' [...]';
-		$trimmed = $trimmed . '<span class="wr-truncated">' . $content[1] . '</span> <a class="wr-truncated-show" href="#wr-readmore">Read more &raquo;</a>';
+		$readmore = __( 'Read more', 'wordpress-reviews' );
+		$content  = wordwrap( $content, $length );
+		$content  = explode( "\n", $content, 2 );
+		$trimmed  = $content[0] . ' [...]';
+		$trimmed  = $trimmed . '<span class="wr-truncated">' . $content[1] . '</span> <a class="wr-truncated-show" href="#wr-readmore">' . $readmore . ' &raquo;</a>';
 
 		return $trimmed;
 	}
