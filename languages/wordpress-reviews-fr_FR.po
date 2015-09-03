@@ -1,33 +1,37 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plugin Reviews for WordPress\n"
-"POT-Creation-Date: 2015-08-26 10:31+0700\n"
-"PO-Revision-Date: 2015-08-26 10:34+0700\n"
+"POT-Creation-Date: 2015-09-03 16:18+0700\n"
+"PO-Revision-Date: 2015-09-03 16:18+0700\n"
 "Last-Translator: \n"
 "Language-Team: ThemeAvenue <support@themeavenue.net>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: plugin-reviews.php:206
+#: class-wr-review.php:106
+msgid "Read more"
+msgstr "Lire la suite"
+
+#: plugin-reviews.php:220
 #, php-format
 msgid ""
 "An error occured. You can <a href=\"%s\">check out all the reviews on "
 "WordPress.org</a>"
 msgstr ""
-"Une erreur s'est produite. Vous pouvez <a href=\"%s\">consulter tous "
-"les avis sur WordPress.org</a>"
+"Une erreur s'est produite. Vous pouvez <a href=\"%s\">consulter tous les "
+"avis sur WordPress.org</a>"
 
-#: plugin-reviews.php:359
+#: plugin-reviews.php:373
 msgid "See all reviews"
 msgstr "Voir tous les avis"
 
-#: plugin-reviews.php:360
+#: plugin-reviews.php:374
 msgid "Add a review"
 msgstr "Donner mon avis"
