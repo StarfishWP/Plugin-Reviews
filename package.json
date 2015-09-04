@@ -1,6 +1,6 @@
 {
   "name": "wordpress-reviews",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -9,6 +9,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-less": "^0.12.0",
     "grunt-contrib-uglify": "~0.5.1",
+    "grunt-text-replace": "^0.4.0",
     "grunt-wp-deploy": "^1.0.3",
     "grunt-wp-readme-to-markdown": "*",
     "load-grunt-tasks": "~0.2.1"
