@@ -10,7 +10,7 @@
  * Plugin Name:       Plugin Reviews
  * Plugin URI:        https://github.com/ThemeAvenue/WordPress.org-Reviews
  * Description:       Fetch the reviews from your plugin page on WordPress.org and display them on your site.
- * Version:           0.2.0
+ * Version:           0.3.0
  * Author:            ThemeAvenue
  * Author URI:        http://themeavenue.net
  * Text Domain:       wpascr
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin constants
  */
-define( 'WR_VERSION', '0.2.0' );
+define( 'WR_VERSION', '0.3.0' );
 define( 'WR_URL',     trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'WR_PATH',    trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
