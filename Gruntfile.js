@@ -4,6 +4,24 @@ module.exports = function (grunt) {
 
 	"use strict";
 
+	var copy_files = [
+		'**',
+		'!.git/**',
+		'!.gitignore',
+		'!.gitmodules',
+		'!build/**',
+		'!.svn/**',
+		'!node_modules/**',
+		'!*.less',
+		'!*.md',
+		'!LICENSE',
+		'!Gruntfile.js',
+		'!package.json',
+		'!plugin-reviews-src.js',
+		'!*.sublime-workspace',
+		'!*.sublime-project'
+	];
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 
@@ -43,21 +61,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					cwd: '.',
-					src: [
-						'**/*',
-						'!build/**',
-						'!.gitignore',
-						'!.svn/**',
-						'!node_modules/**',
-						'!*.less',
-						'!readme.md',
-						'!Gruntfile.js',
-						'!package.json',
-						'!plugin-reviews-src.js',
-						'!*.sublime-workspace',
-						'!*.sublime-project',
-						'!plugin-reviews-<%= pkg.version %>.zip'
-					],
+					src: copy_files,
 					dest: 'build'
 				}]
 			}
@@ -108,26 +112,11 @@ module.exports = function (grunt) {
 		compress: {
 			production: {
 				options: {
-					archive: 'plugin-reviews-<%= pkg.version %>.zip',
+					archive: '<%= pkg.name %>-<%= pkg.version %>.zip',
 					mode: 'zip'
 				},
 				files: [{
-					src: [
-						'**/*',
-						'!build/**',
-						'!.gitignore',
-						'!.svn/**',
-						'!node_modules/**',
-						'!*.less',
-						'!README.md',
-						'!CONTRIBUTING.md',
-						'!Gruntfile.js',
-						'!package.json',
-						'!plugin-reviews-src.js',
-						'!*.sublime-workspace',
-						'!*.sublime-project',
-						'!plugin-reviews-<%= pkg.version %>.zip'
-					]
+					src: copy_files
 				}]
 			}
 		}
