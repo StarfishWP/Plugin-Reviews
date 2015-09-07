@@ -51,7 +51,7 @@ module.exports = function (grunt) {
 		wp_readme_to_markdown: {
 			production: {
 				files: {
-					'readme.md': 'readme.txt'
+					'README.md': 'readme.txt'
 				},
 			},
 		},

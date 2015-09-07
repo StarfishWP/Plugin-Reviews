@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: wordpress,reviews,rating
 Requires at least: 3.8
 Tested up to: 4.3
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -42,7 +42,6 @@ We're pretty busy, so feel free to contribute if you like the plugin :)
 * Add styling options for carousel?
 * Add a way to disable style completely
 * Add a way to change the prefix from `wr-` to `whatever` (applies to every elements)
-* Add loading spinner while fetching data / preloading avatars
 * Loading carousel styles & scripts only if chosen layout is carousel
 
 = Contributing Guidelines =
@@ -62,6 +61,22 @@ You're a developer. You know ;)
 2. WordPress.org Reviews, Carousel Layout
 
 == Changelog ==
+
+= 0.3.0 - September 4th, 2015 =
+* New
+    * Add shortcode attribute `no_query_string` to remove all query strings
+    * Add shortcode attribute `exclude` to exclude reviewers
+    * Add lazy load for Gravatar images
+    * Change Gravatar default size to 80
+    * French translation
+
+* Enhancements
+    * Remove image size query string if default Gravatar size is used
+    * Bigger and more accessible prev/next buttons on small devices
+
+* Fixes
+    * Fix issue with sites installed in sub-directories
+    * Fix duplicated reviews if shortcode used more than once in the same page
 
 = 0.2.0 =
 * Refactor the plugin to use the WordPress.org API
