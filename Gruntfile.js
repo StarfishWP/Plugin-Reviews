@@ -74,36 +74,30 @@ module.exports = function (grunt) {
 			}
 		},
 
-		replace: {
+		version: {
 			pluginVersion: {
+				options: {
+					prefix: 'Version:\\s+'
+				},
 				src: [
 					'plugin-reviews.php'
-				],
-				overwrite: true,
-				replacements: [{
-					from: /^\s\*\sVersion: .*$/m,
-					to: ' * Version:           <%= pkg.version %>'
-				}]
+				]
 			},
 			pluginConstant: {
+				options: {
+					prefix: 'define\\(\\s*\'WR_VERSION\',\\s*\''
+				},
 				src: [
 					'plugin-reviews.php'
-				],
-				overwrite: true,
-				replacements: [{
-					from: /define\( '(.*?)',\s*'(.*)' \);/,
-					to: 'define( \'WR_VERSION\', \'<%= pkg.version %>\' );'
-				}]
+				]
 			},
 			stableTag: {
+				options: {
+					prefix: 'Stable tag:\\s+'
+				},
 				src: [
 					'readme.txt'
-				],
-				overwrite: true,
-				replacements: [{
-					from: /^Stable tag: .*$/m,
-					to: 'Stable tag: <%= pkg.version %>'
-				}]
+				]
 			}
 		},
 
@@ -144,5 +138,6 @@ module.exports = function (grunt) {
 
 	grunt.registerTask("default", ["jshint", "uglify", "less", "wp_readme_to_markdown"]);
 	grunt.registerTask("build", ["default", "copy", "wp_deploy"]);
+	grunt.registerTask("release", ["default", "wp_readme_to_markdown", "compress"]);
 
 };
