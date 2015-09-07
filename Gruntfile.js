@@ -70,8 +70,8 @@ module.exports = function (grunt) {
 		wp_deploy: {
 			production: {
 				options: {
-					plugin_slug: 'plugin-reviews',
-					svn_user: 'plugin-reviews',
+					plugin_slug: '<%= pkg.name %>',
+					svn_user: 'themeavenue',
 					build_dir: 'build',
 					assets_dir: '.svn/assets'
 				}
@@ -128,5 +128,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("default", ["jshint", "uglify", "less", "wp_readme_to_markdown"]);
 	grunt.registerTask("build", ["default", "copy", "wp_deploy"]);
 	grunt.registerTask("release", ["default", "wp_readme_to_markdown", "compress"]);
+	grunt.registerTask("to_svn", ["copy:production", "wp_deploy"]);
 
 };
