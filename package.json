@@ -1,6 +1,6 @@
 {
-  "name": "wordpress-reviews",
-  "version": "0.3.0",
+  "name": "plugin-reviews",
+  "version": "0.2.0",
   "private": true,
   "devDependencies": {
     "grunt": "^0.4.5",
