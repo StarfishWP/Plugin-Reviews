@@ -33,7 +33,7 @@ class WR_Review {
 	protected function review_markup() { ?>
 	
 		<div class="wr-single">
-			<div class="wr-avatar-wrap" style="width:{{gravatar_size}}px;height:{{gravatar_size}}px;"><img class="wr-avatar" data-lazy="{{gravatar_url}}" data-echo="{{gravatar_url}}" alt="{{username}}" width="{{gravatar_size}}" height="{{gravatar_size}}" src="<?php echo WR_URL; ?>images/blank.gif"></div>
+			<div class="wr-avatar-wrap" style="width:{{gravatar_size}}px;height:{{gravatar_size}}px;"><img class="wr-avatar" data-lazy="{{gravatar_url}}" data-echo="{{gravatar_url}}" alt="{{username}}" width="{{gravatar_size}}" height="{{gravatar_size}}" src="<?php echo WR_URL; ?>images/blank.png"></div>
 			<div class="wr-username">{{username}}</div>
 			<div class="wr-sr wr-sr-{{rating}}"><i></i><i></i><i></i><i></i><i></i></div>
 			<div class="wr-title">{{title}}</div>
