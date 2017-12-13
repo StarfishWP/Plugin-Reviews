@@ -59,7 +59,7 @@ We're busy, so feel free to contribute!
 
 ## Installation ##
 
-Go to Plugins>Add New and search "Plugin Reviews". Click "Install Now" then "Activate" on this plugin (by "Starfish Plugins"). Now navigate to 
+Go to Plugins>Add New and search "Plugin Reviews". Click "Install Now" then "Activate" on this plugin (by "Starfish Plugins").
 
 ## Screenshots ##
 
