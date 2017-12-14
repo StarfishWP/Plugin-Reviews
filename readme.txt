@@ -72,7 +72,7 @@ Go to Plugins>Add New and search "Plugin Reviews". Click "Install Now" then "Act
 == Changelog ==
 
 = 0.4.0 - December 20th, 2017 =
-* Enhancments
+* Enhancements
     * Add transient flush on activation - thanks Chris Simmons for this
 
 * Fixes
