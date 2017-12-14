@@ -1,18 +1,18 @@
 <?php
 /**
  * @package   Plugin Reviews
- * @author    ThemeAvenue <web@themeavenue.net>
+ * @author    starfishwp <support@starfishwp.com>
  * @license   GPL-2.0+
- * @link      http://themeavenue.net
- * @copyright 2014 ThemeAvenue
+ * @link      https://starfishwp.com/
+ * @copyright 2014 Starfish WP
  *
  * @wordpress-plugin
  * Plugin Name:       Plugin Reviews
- * Plugin URI:        https://github.com/ThemeAvenue/WordPress.org-Reviews
+ * Plugin URI:        https://github.com/StarfishWP/Plugin-Reviews
  * Description:       Fetch the reviews from your plugin page on WordPress.org and display them on your site.
- * Version:           0.3.0
- * Author:            ThemeAvenue
- * Author URI:        http://themeavenue.net
+ * Version:           1.0.0
+ * Author:            starfishwp
+ * Author URI:        https://starfishwp.com/
  * Text Domain:       wpascr
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin constants
  */
-define( 'WR_VERSION', '0.3.0' );
+define( 'WR_VERSION', '1.0.0' );
 define( 'WR_URL',     trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'WR_PATH',    trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
@@ -53,7 +53,7 @@ add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
  * @return string Shortcode result
  */
 function plugin_reviews_shortcode( $atts ) {
-	
+
 	$reviews = new WR_Reviews( $atts );
 
 	return $reviews->get_result();
