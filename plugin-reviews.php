@@ -10,7 +10,7 @@
  * Plugin Name:       Plugin Reviews
  * Plugin URI:        https://github.com/StarfishWP/Plugin-Reviews
  * Description:       Fetch the reviews from your plugin page on WordPress.org and display them on your site.
- * Version:           1.0.0
+ * Version:           0.4.0
  * Author:            starfishwp
  * Author URI:        https://starfishwp.com/
  * Text Domain:       wpascr
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Plugin constants
  */
-define( 'WR_VERSION', '1.0.0' );
+define( 'WR_VERSION', '0.4.0' );
 define( 'WR_URL',     trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'WR_PATH',    trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
