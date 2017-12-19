@@ -11,7 +11,7 @@
  * Plugin URI:        https://github.com/StarfishWP/Plugin-Reviews
  * Description:       Fetch the reviews from your plugin page on WordPress.org and display them on your site.
  * Version:           0.4.0
- * Author:            starfishwp
+ * Author:            Starfish WP
  * Author URI:        https://starfishwp.com/
  * Text Domain:       wpascr
  * License:           GPL-2.0+
@@ -23,6 +23,7 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
+
 
 /**
  * Plugin constants
@@ -43,6 +44,13 @@ add_action( 'wp_print_styles',  array( 'WR_Reviews', 'load_style' ) );
 add_action( 'wp_print_scripts', array( 'WR_Reviews', 'load_script' ) );
 
 add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
+
+/**
+ * Activation/Deactivation Hooks
+ */
+register_activation_hook( __FILE__, array( 'WR_Reviews', 'activate' ) );
+
+
 /**
  * Plugin Reviews Shortcode
  *
@@ -174,6 +182,15 @@ class WR_Reviews {
 
 		return $defaults;
 
+	}
+
+
+	/**
+	 * Activation action
+	 */
+	public static function activate() {
+
+		update_option("wr_reviews_flush_transient",true);
 	}
 
 	/**

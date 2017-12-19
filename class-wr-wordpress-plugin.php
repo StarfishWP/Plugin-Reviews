@@ -35,7 +35,7 @@ class WR_WordPress_Plugin {
 
 	/**
 	 * Constructor.
-	 * 
+	 *
 	 * @param string $plugin_name Slug of the plugin to fetch
 	 */
 	public function __construct( $plugin_name = 'plugin-reviews' ) {
@@ -76,6 +76,15 @@ class WR_WordPress_Plugin {
 	protected function get_plugin_reviews() {
 
 		$hash          = md5( $this->plugin_name );
+
+		//transients flushed on activation
+		$flush_transients = (bool) get_option("wr_reviews_flush_transient",false);
+		if (true===$flush_transients) {
+			//error_log('flush transient');
+			delete_option("wr_reviews_flush_transient");
+			delete_transient( "wr_reviews_$hash" );
+		}
+
 		$this->reviews = get_transient( "wr_reviews_$hash" );
 
 		if ( false === $this->reviews ) {
@@ -154,6 +163,33 @@ class WR_WordPress_Plugin {
 	}
 
 	/**
+	 * Get the content of an HTML node.
+	 *
+	 * Get the content of an HTML node using DOMDocument.
+	 * We are searching the node by its class.
+	 *
+	 * @since  0.1.0
+	 * @param  string $html  HTML string to get the content from
+	 * @param  string $class Class of the node to get the content from
+	 * @return string        Node content
+	 */
+	protected function get_rating_content( $html, $class ) {
+
+		$dom     = new DOMDocument();
+		$dom->loadHTML( $html );
+		$finder  = new DomXPath( $dom );
+		$nodes   = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $class ')]");
+
+		$content = '';
+		foreach ( $nodes as $element ) {
+			$content = $element->getAttribute('data-rating');
+		}
+
+		return trim( strip_tags( $content ) );
+
+	}
+
+	/**
 	 * Construct review array.
 	 *
 	 * Prepare the review in its final form.
@@ -175,7 +211,9 @@ class WR_WordPress_Plugin {
 		$data['content']          = $this->get_node_content( $review, 'review-body' );
 		$data['title']            = $this->get_tag_content( $review, 'h4' );
 		$data['date']             = $this->get_node_content( $review, 'review-date' );
-		$data['rating']           = $this->get_node_content( $review, 'screen-reader-text' );
+		$data['rating']           = $this->get_rating_content( $review, 'wporg-ratings' );
+
+		//error_log(var_export($data['rating']  ,true));
 
 		return $data;
 
