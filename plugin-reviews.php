@@ -1,17 +1,17 @@
 <?php
 /**
- * @package   Plugin Reviews
+ * @package   Starfish Plugin Reviews
  * @author    starfishwp <support@starfishwp.com>
  * @license   GPL-2.0+
  * @link      https://starfishwp.com/
- * @copyright 2014 Starfish WP
+ * @copyright 2018 Starfish WP
  *
  * @wordpress-plugin
- * Plugin Name:       Plugin Reviews
+ * Plugin Name:       Starfish Plugin Reviews
  * Plugin URI:        https://github.com/StarfishWP/Plugin-Reviews
  * Description:       Fetch the reviews from your plugin page on WordPress.org and display them on your site.
  * Version:           0.4.0
- * Author:            Starfish WP
+ * Author:            Starfish Plugins
  * Author URI:        https://starfishwp.com/
  * Text Domain:       wpascr
  * License:           GPL-2.0+
