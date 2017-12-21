@@ -1,4 +1,4 @@
-# Plugin Reviews #
+# Plugin Reviews by Starfish #
 **Contributors:** starfishwp,julien731,SiamKreative,cssimmon,anasbinmukim,thefiddler  
 **Donate link:** https:paypal.me/fiddler  
 **Tags:** wordpress,plugins,reviews,ratings,plugin reviews,  
