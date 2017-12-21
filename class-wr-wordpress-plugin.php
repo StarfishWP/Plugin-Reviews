@@ -118,7 +118,7 @@ class WR_WordPress_Plugin {
 		$reviews       = $this->reviews;
 		$this->reviews = array();
 		$dom           = new DOMDocument();
-		$dom->loadHTML( $reviews );
+		$dom->loadHTML('<?xml encoding="UTF-8">' . $reviews);
 		$finder        = new DomXPath( $dom );
 		$nodes         = $finder->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' review ')]");
 
@@ -208,9 +208,9 @@ class WR_WordPress_Plugin {
 		$data['username']['text'] = isset( $links[1] ) ? $links[1] : '';
 		$data['username']['href'] = $this->get_link_href( $review );
 		$data['avatar']['src']    = $this->get_image_src( $review );
-		$data['content']          = $this->get_node_content( $review, 'review-body' );
-		$data['title']            = $this->get_tag_content( $review, 'h4' );
-		$data['date']             = $this->get_node_content( $review, 'review-date' );
+		$data['content']          = iconv("UTF-8", 'ISO-8859-1', $this->get_node_content( $review, 'review-body' ));
+		$data['title']            = iconv("UTF-8", 'ISO-8859-1', $this->get_tag_content( $review, 'h4' ));
+		$data['date']             = iconv("UTF-8", 'ISO-8859-1', $this->get_node_content( $review, 'review-date' ));
 		$data['rating']           = $this->get_rating_content( $review, 'wporg-ratings' );
 
 		//error_log(var_export($data['rating']  ,true));
