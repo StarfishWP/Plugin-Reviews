@@ -61,16 +61,19 @@ Change "plugin-slug-here" to the slug of the plugin you want to display the revi
 
 ## Screenshots ##
 
-### 1. WordPress.org Reviews, Grid Layout ###
+### 1. Plugin Reviews, Grid Layout ###
 ![WordPress.org Reviews, Grid Layout](http://ps.w.org/plugin-reviews/assets/screenshot-1.png)
 
-### 2. WordPress.org Reviews, Carousel Layout ###
+### 2. Plugin Reviews, Carousel Layout ###
 ![WordPress.org Reviews, Carousel Layout](http://ps.w.org/plugin-reviews/assets/screenshot-2.png)
+
+### 3. Plugin Reviews, Responsive ##
+![WordPress.org Reviews, Carousel Layout](http://ps.w.org/plugin-reviews/assets/screenshot-3.png)
 
 
 ## Changelog ##
 
-### 0.4.0 - December 20th, 2017 ###
+### 0.4.0 - December 21st, 2017 ###
 * Enhancments
     * Add transient flush on activation.
 * Fixes
