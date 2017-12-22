@@ -21,16 +21,6 @@ Simply provide your plugin's slug (on WordPress.org) and the plugin will fetch t
 
 By default, all reviews from WordPress.org are cached for 24 hours.
 
-= Shortcode =
-
-You need to use the following shortcode:
-
-`
-[wr_reviews]
-`
-
-The shortcode can be used anywhere on your site, and even on multiple pages/posts. All shortcode parameters are [listed here](https://github.com/StarfishWP/Plugin-Reviews/wiki/Shortcode-Attributes).
-
 = Demo =
 
 You can see it working here on the [Starfish Plugin Reviews page](https://starfishwp.com/plugin-reviews/). We use the Carousel Layout.
@@ -63,6 +53,14 @@ We're busy, so feel free to contribute!
 == Installation ==
 
 Go to Plugins>Add New and search "Plugin Reviews". Click "Install Now" then "Activate" on this plugin (by "Starfish Plugins").
+
+There is no settings page. Use the shortcode:
+
+`
+[wr_reviews plugin_slug="plugin-slug-here"]
+`
+
+Change "plugin-slug-here" to the slug of the plugin you want to display the reviews for. The shortcode can be used anywhere on your site, and even on multiple pages/posts. There are a number of shortcode parameters you can also use,  [listed here](https://github.com/StarfishWP/Plugin-Reviews/wiki/Shortcode-Attributes).
 
 == Screenshots ==
 
