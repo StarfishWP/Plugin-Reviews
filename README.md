@@ -73,11 +73,13 @@ Change "plugin-slug-here" to the slug of the plugin you want to display the revi
 
 ## Changelog ##
 
-### 0.4.0 - December 21st, 2017 ###
+### 0.4.0 - December 22nd, 2017 ###
 * Enhancments
     * Add transient flush on activation.
 * Fixes
     * Fix issue with ratings not loading due to changes in the plugin repo format that broke the filters. - Thanks Chris Simmons!
+    * Fix issue with truncate parameter not working as expected.
+    * Fix issue with languages other than English inside reviews displaying incorrectly.
 
 ### 0.3.0 - September 4th, 2015 ###
 * New
