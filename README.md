@@ -1,6 +1,6 @@
-# Plugin Reviews by Starfish #
+# Plugin Reviews #
 **Contributors:** starfishwp,julien731,SiamKreative,cssimmon,anasbinmukim,thefiddler  
-**Donate link:** https:paypal.me/fiddler  
+**Donate link:** https://paypal.me/fiddler  
 **Tags:** wordpress,plugins,reviews,ratings,plugin reviews,  
 **Requires at least:** 4.5
 **Tested up to:** 4.9.1
@@ -19,16 +19,6 @@ A tiny plugin to help you **showcase your WordPress.org reviews on your site**. 
 Simply provide your plugin's slug (on WordPress.org) and the plugin will fetch the reviews, and display them. For instance, if you want to get the reviews for this plugin, the slug is `plugin-reviews`.
 
 By default, all reviews from WordPress.org are cached for 24 hours.
-
-### Shortcode ###
-
-You need to use the following shortcode:
-
-
-	[wr_reviews]
-
-
-The shortcode can be used anywhere on your site, and even on multiple pages/posts. All shortcode parameters are [listed here](https://github.com/StarfishWP/Plugin-Reviews/wiki/Shortcode-Attributes).
 
 ### Demo ###
 
@@ -60,6 +50,14 @@ We're busy, so feel free to contribute!
 ## Installation ##
 
 Go to Plugins>Add New and search "Plugin Reviews". Click "Install Now" then "Activate" on this plugin (by "Starfish Plugins").
+
+There is no settings page. Use the shortcode:
+
+`
+[wr_reviews plugin_slug="plugin-slug-here"]
+`
+
+Change "plugin-slug-here" to the slug of the plugin you want to display the reviews for. The shortcode can be used anywhere on your site, and even on multiple pages/posts. There are a number of shortcode parameters you can also use,  [listed here](https://github.com/StarfishWP/Plugin-Reviews/wiki/Shortcode-Attributes).
 
 ## Screenshots ##
 
