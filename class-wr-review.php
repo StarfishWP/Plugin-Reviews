@@ -1,10 +1,10 @@
 <?php
 /**
- * @package   WordPress Reviews
- * @author    ThemeAvenue <web@themeavenue.net>
+ * @package   Plugin Reviews
+ * @author    starfishwp <support@starfishwp.com>
  * @license   GPL-2.0+
- * @link      http://themeavenue.net
- * @copyright 2014 ThemeAvenue
+ * @link      https://starfishwp.com
+ * @copyright 2018 Starfish Plugins
  */
 
 class WR_Review {
