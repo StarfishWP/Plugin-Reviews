@@ -1,6 +1,6 @@
-=== Plugin Reviews by Starfish ===
+=== Plugin Reviews ===
 Contributors: starfishwp,julien731,SiamKreative,cssimmon,anasbinmukim,thefiddler  
-Donate link: https:paypal.me/fiddler  
+Donate link: https://paypal.me/fiddler  
 Tags: wordpress,plugins,reviews,ratings,plugin reviews,  
 Requires at least: 4.5
 Tested up to: 4.9.1
