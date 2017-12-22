@@ -64,8 +64,9 @@ Change "plugin-slug-here" to the slug of the plugin you want to display the revi
 
 == Screenshots ==
 
-1. WordPress.org Reviews, Grid Layout
-2. WordPress.org Reviews, Carousel Layout
+1. Plugin Reviews, Grid Layout
+2. Plugin Reviews, Carousel Layout
+3. Plugin Reviews, Responsivness
 
 == Changelog ==
 
