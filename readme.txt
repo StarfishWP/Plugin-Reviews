@@ -70,7 +70,7 @@ Change "plugin-slug-here" to the slug of the plugin you want to display the revi
 
 == Changelog ==
 
-= 0.4.0 - December 20th, 2017 =
+= 0.4.0 - December 21st, 2017 =
 * Enhancements
     * Add transient flush on activation - thanks Chris Simmons for this
 
