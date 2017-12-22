@@ -75,7 +75,10 @@ Change "plugin-slug-here" to the slug of the plugin you want to display the revi
 
 ### 0.4.0 - December 22nd, 2017 ###
 * Enhancments
-    * Add transient flush on activation.
+    * Add transient flush on activation - thanks Chris Simmons!
+    * Updated description, installation instructions, etc.
+    * New header and icon images.
+    * New screenshot desmonstrating responsiveness.
 * Fixes
     * Fix issue with ratings not loading due to changes in the plugin repo format that broke the filters. - Thanks Chris Simmons!
     * Fix issue with truncate parameter not working as expected.
