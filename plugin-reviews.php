@@ -50,11 +50,8 @@ add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
  */
 register_activation_hook( __FILE__, array( 'WR_Reviews', 'activate' ) );
 
-
 add_action( 'init', array( 'WR_Reviews', 'register_block' ) );
 add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_assets' ) );
-
-
 
 /**
  * Plugin Reviews Shortcode
@@ -301,7 +298,7 @@ class WR_Reviews {
 	public static function load_assets() {
 		wp_enqueue_script(
 			'plugin-reviews-gutenberg-block',
-			WR_URL . 'assets/block.min.js',
+			WR_URL . 'assets/block.js',
 			array( 'wp-blocks', 'wp-editor' ),
 			true
 		);
