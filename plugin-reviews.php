@@ -301,7 +301,7 @@ class WR_Reviews {
 	public static function load_assets() {
 		wp_enqueue_script(
 			'plugin-reviews-gutenberg-block',
-			WR_URL . 'assets/js/block.js',
+			WR_URL . 'assets/block.min.js',
 			array( 'wp-blocks', 'wp-editor' ),
 			true
 		);
