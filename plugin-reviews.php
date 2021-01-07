@@ -267,6 +267,42 @@ class WR_Reviews {
 
 		$this->result = $this->merge();
 
+		add_action( 'init', array( $this, 'register_block' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'load_assets' ) );
+	}
+
+	/**
+	 * Register gutenber block.
+	 *
+	 * @return void.
+	 */
+	public function register_block() {
+
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+
+		register_block_type(
+			'plugin-reviews/plugin-reviews-content',
+			array(
+				'editor_script'   => 'plugin-reviews-gutenberg-block',
+				'render_callback' => 'tbd',
+			)
+		);
+	}
+
+	/**
+	 * Load assets on gutenberg area.
+	 *
+	 * @return void.
+	 */
+	public function load_assets() {
+		wp_enqueue_script(
+			'plugin-reviews-gutenberg-block',
+			plugins_url( 'assets/js/admin/block.js', WR_URL ),
+			array( 'wp-blocks', 'wp-editor' ),
+			true
+		);
 	}
 
 	/**
