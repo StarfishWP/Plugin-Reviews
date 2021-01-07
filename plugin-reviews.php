@@ -51,6 +51,11 @@ add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
 register_activation_hook( __FILE__, array( 'WR_Reviews', 'activate' ) );
 
 
+add_action( 'init', array( 'WR_Reviews', 'register_block' ) );
+add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_assets' ) );
+
+
+
 /**
  * Plugin Reviews Shortcode
  *
@@ -266,9 +271,6 @@ class WR_Reviews {
 		}
 
 		$this->result = $this->merge();
-
-		add_action( 'init', array( $this, 'register_block' ) );
-		add_action( 'enqueue_block_editor_assets', array( $this, 'load_assets' ) );
 	}
 
 	/**
@@ -276,7 +278,7 @@ class WR_Reviews {
 	 *
 	 * @return void.
 	 */
-	public function register_block() {
+	public static function register_block() {
 
 		if ( ! function_exists( 'register_block_type' ) ) {
 			return;
@@ -296,10 +298,10 @@ class WR_Reviews {
 	 *
 	 * @return void.
 	 */
-	public function load_assets() {
+	public static function load_assets() {
 		wp_enqueue_script(
 			'plugin-reviews-gutenberg-block',
-			plugins_url( 'assets/js/admin/block.js', WR_URL ),
+			WR_URL . 'assets/js/block.js',
 			array( 'wp-blocks', 'wp-editor' ),
 			true
 		);
