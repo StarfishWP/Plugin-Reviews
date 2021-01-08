@@ -285,7 +285,7 @@ class WR_Reviews {
 			'plugin-reviews/plugin-reviews-content',
 			array(
 				'editor_script'   => 'plugin-reviews-gutenberg-block',
-				'render_callback' => 'tbd',
+				'render_callback' => 'plugin_reviews_shortcode',
 			)
 		);
 	}
@@ -302,6 +302,10 @@ class WR_Reviews {
 			array( 'wp-blocks', 'wp-editor' ),
 			true
 		);
+
+		wp_localize_script( 'plugin-reviews-gutenberg-block', 'plugin_reviews_params', array(
+			'preview_url' => WR_URL . 'images/spinner.gif'
+		) );
 	}
 
 	/**
