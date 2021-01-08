@@ -281,9 +281,28 @@ class WR_Reviews {
 			return;
 		}
 
+		$attributes = [
+			'pluginSlug'       => [
+				'type' => 'string',
+			],
+			'layout' => [
+				'type' => 'string',
+			],
+			'rating'  => [
+				'type' => 'string',
+			],
+			'sortBy'    => [
+				'type' => 'string',
+			],
+			'limit'    => [
+				'type' => 'string',
+			],
+		];
+
 		register_block_type(
 			'plugin-reviews/plugin-reviews-content',
 			array(
+				'attributes' 	  => 'attributes',
 				'editor_script'   => 'plugin-reviews-gutenberg-block',
 				'render_callback' => 'plugin_reviews_shortcode',
 			)
