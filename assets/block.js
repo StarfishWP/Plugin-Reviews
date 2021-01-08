@@ -6,7 +6,6 @@
  */
 
 const { __ } = wp.i18n;
-const el = wp.element.createElement;
 const { serverSideRender: ServerSideRender = wp.components.ServerSideRender } = wp;
 const { createElement, Fragment } = wp.element;
 const { registerBlockType } = wp.blocks;
@@ -18,7 +17,7 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
   icon: "format-status",
   category: "widgets",
   attributes: {
-    plguinSlug: {
+    pluginSlug: {
       type: "string"
     },
     layout: {
@@ -43,7 +42,7 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
   edit(props) {
     const {
       attributes: {
-        plguinSlug = "plugin-reviews",
+        pluginSlug = "plugin-reviews",
         layout = "grid",
         rating = "all",
         sortBy = "DESC"
@@ -52,9 +51,9 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
     } = props;
     let jsx;
 
-    function pluginSlug(value) {
+    function setPluginSlug(value) {
       setAttributes({
-        plguinSlug: value
+        pluginSlug: value
       });
     }
 
@@ -71,8 +70,8 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
           },
           /*#__PURE__*/ React.createElement(TextControl, {
             label: "Plugin Slug",
-            value: plguinSlug,
-            onChange: pluginSlug
+            value: pluginSlug,
+            onChange: setPluginSlug
           })
         )
       )
@@ -86,7 +85,7 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
           attributes: props.attributes
         })
       );
-    } else {
+    } else {  // Empty plugin slug.
       jsx.push(
         /*#__PURE__*/ React.createElement(
           Placeholder,
