@@ -304,9 +304,28 @@ class WR_Reviews {
 			array(
 				'attributes' 	  => $attributes,
 				'editor_script'   => 'plugin-reviews-gutenberg-block',
-				'render_callback' => 'plugin_reviews_shortcode',
+				'render_callback' => [ 'WR_Reviews', 'view_reviews' ],
 			)
 		);
+	}
+
+	/**
+	 * Get reviews in the Gutenberg block.
+	 *
+	 * @param array $attr Attributes passed by the Gutenberg block.
+	 *
+	 * @return string
+	 */
+	public static function view_reviews( $attr ) {
+
+		$attr = array( 
+			'plugin_slug' => isset( $attr['pluginSlug'] ) ? $attr['pluginSlug'] : '',
+			'limit' 	  => isset( $attr['limit'] ) ? $attr['limit'] : 10,
+			'sort' 		  => isset( $attr['sortBy'] ) ? $attr['sortBy'] : 'DESC',
+			'rating'      => isset( $attr['rating'] ) ? $attr['rating'] : 'all',
+		);
+
+		return plugin_reviews_shortcode( $attr );
 	}
 
 	/**
