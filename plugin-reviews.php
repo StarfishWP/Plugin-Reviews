@@ -302,7 +302,7 @@ class WR_Reviews {
 		register_block_type(
 			'plugin-reviews/plugin-reviews-content',
 			array(
-				'attributes' 	  => 'attributes',
+				'attributes' 	  => $attributes,
 				'editor_script'   => 'plugin-reviews-gutenberg-block',
 				'render_callback' => 'plugin_reviews_shortcode',
 			)
