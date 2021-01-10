@@ -66,10 +66,10 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
         /*#__PURE__*/ React.createElement(
           PanelBody,
           {
-            title: "Title"
+            title: __( "Settings", "wordpress-reviews" )
           },
           /*#__PURE__*/ React.createElement(TextControl, {
-            label: "Plugin Slug",
+            label: __( "Plugin Slug", "wordpress-reviews" ),
             value: pluginSlug,
             onChange: setPluginSlug
           })
