@@ -341,6 +341,10 @@ class WR_Reviews {
 			true
 		);
 
+		wp_enqueue_style( 'wr-slick', WR_URL . 'vendor/slick/slick.css', null, '1.5.8', 'all' );
+		wp_enqueue_style( 'wr-slick-theme', WR_URL . 'vendor/slick/slick-theme.css', null, '1.5.8', 'all' );
+		wp_enqueue_style( 'wr-style', WR_URL . 'plugin-reviews.css', null, WR_VERSION, 'all' );
+
 		wp_localize_script( 'plugin-reviews-gutenberg-block', 'plugin_reviews_params', array(
 			'preview_url' => WR_URL . 'images/spinner.gif'
 		) );
