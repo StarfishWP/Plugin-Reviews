@@ -42,6 +42,8 @@ add_action( 'plugins_loaded', array( 'WR_Reviews', 'load_plugin_textdomain' ), 1
  */
 add_action( 'wp_print_styles',  array( 'WR_Reviews', 'load_style' ) );
 add_action( 'wp_print_scripts', array( 'WR_Reviews', 'load_script' ) );
+add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_script' ) );
+add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_style' ) );
 
 add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
 
@@ -65,11 +67,10 @@ add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_assets' ) 
 function plugin_reviews_shortcode( $atts ) {
 
 	$reviews = new WR_Reviews( $atts );
-	$empty 	 = trim( "<div class=' wr-grid'></div>" ); 
+	$empty 	 = array( trim( "<div class=' wr-grid'></div>" ), trim( "<div class=' wr-carousel'></div>" )  ); 
 
 	$result = $reviews->get_result();
-
-	if ( $result === $empty ) {
+	if ( in_array( $result, $empty ) ) {
 
 		$result = sprintf(/* translators: %1$s - WordPress.org plugin reviews page.; %2$s - Same.*/
 						wp_kses(
@@ -309,13 +310,13 @@ class WR_Reviews {
 			'layout' => [
 				'type' => 'string',
 			],
-			'rating'  => [
+			'ratingsLimit'    => [
+				'type' => 'int',
+			],
+			'ratingsDisplay'  => [
 				'type' => 'string',
 			],
 			'sortBy'    => [
-				'type' => 'string',
-			],
-			'limit'    => [
 				'type' => 'string',
 			],
 		];
@@ -341,9 +342,10 @@ class WR_Reviews {
 
 		$attr = array( 
 			'plugin_slug' => isset( $attr['pluginSlug'] ) ? $attr['pluginSlug'] : 'plugin-reviews',
-			'limit' 	  => isset( $attr['limit'] ) ? $attr['limit'] : 10,
+			'limit' 	  => isset( $attr['ratingsLimit'] ) ? $attr['ratingsLimit'] : 10,
+			'rating'      => isset( $attr['ratingsDisplay'] ) ? $attr['ratingsDisplay'] : 'all',
+			'layout'      => isset( $attr['layout'] ) ? $attr['layout'] : 'grid',
 			'sort' 		  => isset( $attr['sortBy'] ) ? $attr['sortBy'] : 'DESC',
-			'rating'      => isset( $attr['rating'] ) ? $attr['rating'] : 'all',
 		);
 
 		return plugin_reviews_shortcode( $attr );
@@ -361,10 +363,6 @@ class WR_Reviews {
 			array( 'wp-blocks', 'wp-editor' ),
 			true
 		);
-
-		wp_enqueue_style( 'wr-slick', WR_URL . 'vendor/slick/slick.css', null, '1.5.8', 'all' );
-		wp_enqueue_style( 'wr-slick-theme', WR_URL . 'vendor/slick/slick-theme.css', null, '1.5.8', 'all' );
-		wp_enqueue_style( 'wr-style', WR_URL . 'plugin-reviews.css', null, WR_VERSION, 'all' );
 
 		wp_localize_script( 'plugin-reviews-gutenberg-block', 'plugin_reviews_params', array(
 			'preview_url' => WR_URL . 'images/spinner.gif'

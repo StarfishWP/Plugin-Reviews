@@ -23,15 +23,15 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
     layout: {
       type: "string"
     },
-    rating: {
+   ratingsLimit: {
+      type: "int"
+    },
+    ratingsDisplay: {
       type: "string"
     },
     sortBy: {
       type: "string"
     },
-    limit: {
-      type: "string"
-    }
   },
   example: {
     attributes: {
@@ -43,8 +43,9 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
     const {
       attributes: {
         pluginSlug = "plugin-reviews",
+        ratingsLimit = 10,
+        ratingsDisplay = "all",
         layout = "grid",
-        rating = "all",
         sortBy = "DESC"
       },
       setAttributes
@@ -54,6 +55,30 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
     function setPluginSlug(value) {
       setAttributes({
         pluginSlug: value
+      });
+    }
+
+     function setLayout(value) {
+      setAttributes({
+        layout: value
+      });
+    }
+
+     function setRatingsDisplay(value) {
+      setAttributes({
+        ratingsDisplay: value
+      });
+    }
+
+     function setRatingsLimit(value) {
+      setAttributes({
+        ratingsLimit: value
+      });
+    }
+
+    function setSortBy(value) {
+      setAttributes({
+        sortBy: value
       });
     }
 
@@ -72,6 +97,42 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
             label: __( "Plugin Slug", "wordpress-reviews" ),
             value: pluginSlug,
             onChange: setPluginSlug
+          }),
+           /*#__PURE__*/ React.createElement(SelectControl, {
+            label: __( "Layout", "wordpress-reviews" ),
+            value: layout,
+            onChange: setLayout,
+            options:  [
+              { value: 'grid', label: 'Grid' },
+              { value: 'carousel', label: 'Carousel' }
+            ] 
+          }),
+           /*#__PURE__*/ React.createElement(SelectControl, {
+            label: __( "Ratings Display", "wordpress-reviews" ),
+            value: ratingsDisplay,
+            onChange: setRatingsDisplay,
+            options:  [
+              { value: 'all', label: 'All' },
+              { value: '5', label: '5 Stars' },
+              { value: '4', label: '4 Stars +' },
+              { value: '3', label: '3 Stars +' },
+              { value: '2', label: '2 Stars +' },
+              { value: '1', label: '1 Stars +' }
+            ] 
+          }),
+           /*#__PURE__*/ React.createElement(SelectControl, {
+            label: __( "Sort Ratings By", "wordpress-reviews" ),
+            value: sortBy,
+            onChange: setSortBy,
+            options:  [
+              { value: 'DESC', label: 'DESC' },
+              { value: 'ASC', label: 'ASC' }
+            ] 
+          }),           
+          /*#__PURE__*/ React.createElement(TextControl, {
+            label: __( "Number of Ratings", "wordpress-reviews" ),
+            value: ratingsLimit,
+            onChange: setRatingsLimit
           })
         )
       )
