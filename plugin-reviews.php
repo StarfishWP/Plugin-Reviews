@@ -71,9 +71,10 @@ function plugin_reviews_shortcode( $atts ) {
 
 	if ( $result === $empty ) {
 
-		$result = printf(/* translators: %1$s - WordPress.org plugin reviews page.; */
-						__( 'No reviews found. If you think it\'s an error, check the reviews on %1$s', 'wordpress-reviews' ),
-						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/'
+		$result = sprintf(/* translators: %1$s - WordPress.org plugin reviews page.; %2$s - Same.*/
+						__( 'No reviews found. If you think it\'s an error, check the reviews on <a href="%1$s">%2$s</a>', 'wordpress-reviews' ),
+						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/',
+						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/',	
 					);
 	}
 
