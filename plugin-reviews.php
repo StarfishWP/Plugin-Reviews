@@ -72,9 +72,17 @@ function plugin_reviews_shortcode( $atts ) {
 	if ( $result === $empty ) {
 
 		$result = sprintf(/* translators: %1$s - WordPress.org plugin reviews page.; %2$s - Same.*/
-						__( 'No reviews found. If you think it\'s an error, check the reviews on <a href="%1$s">%2$s</a>', 'wordpress-reviews' ),
+						wp_kses(
+							__( 'No reviews found. If you think it\'s an error, check the reviews on <a href="%1$s">%2$s</a>', 'wordpress-reviews' ),
+
+							array(
+								'a'      => array(
+								'href'   => true,
+								),
+							)
+						),
 						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/',
-						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/',	
+						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/',
 					);
 	}
 
@@ -292,6 +300,7 @@ class WR_Reviews {
 		if ( ! function_exists( 'register_block_type' ) ) {
 			return;
 		}
+		$defaults  = self::default_attributes();
 
 		$attributes = [
 			'pluginSlug'       => [
@@ -331,7 +340,7 @@ class WR_Reviews {
 	public static function view_reviews( $attr ) {
 
 		$attr = array( 
-			'plugin_slug' => isset( $attr['pluginSlug'] ) ? $attr['pluginSlug'] : '',
+			'plugin_slug' => isset( $attr['pluginSlug'] ) ? $attr['pluginSlug'] : 'plugin-reviews',
 			'limit' 	  => isset( $attr['limit'] ) ? $attr['limit'] : 10,
 			'sort' 		  => isset( $attr['sortBy'] ) ? $attr['sortBy'] : 'DESC',
 			'rating'      => isset( $attr['rating'] ) ? $attr['rating'] : 'all',
