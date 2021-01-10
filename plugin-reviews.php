@@ -65,8 +65,19 @@ add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_assets' ) 
 function plugin_reviews_shortcode( $atts ) {
 
 	$reviews = new WR_Reviews( $atts );
+	$empty 	 = trim( "<div class=' wr-grid'></div>" ); 
 
-	return $reviews->get_result();
+	$result = $reviews->get_result();
+
+	if ( $result === $empty ) {
+
+		$result = printf(/* translators: %1$s - WordPress.org plugin reviews page.; */
+						__( 'No reviews found. If you think it\'s an error, check the reviews on %1$s', 'wordpress-reviews' ),
+						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/'
+					);
+	}
+
+	return $result;
 }
 
 class WR_Reviews {
