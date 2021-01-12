@@ -50,6 +50,10 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
       },
       setAttributes
     } = props;
+
+    const event = new Event('gutenbergSlick');
+    document.dispatchEvent( event );
+  
     let jsx;
 
     function setPluginSlug(value) {
@@ -59,6 +63,10 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
     }
 
      function setLayout(value) {
+
+      const onLayoutChange = new Event('gutenbergSlickOnLayoutChange');
+      document.dispatchEvent( onLayoutChange );
+
       setAttributes({
         layout: value
       });
