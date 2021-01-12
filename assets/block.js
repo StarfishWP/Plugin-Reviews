@@ -48,9 +48,6 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
       },
       setAttributes
     } = props;
-
-    const event = new Event('gutenbergSlick');
-    document.dispatchEvent( event );
   
     let jsx;
 
@@ -83,6 +80,9 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
         sortBy: value
       });
     }
+
+    const event = new Event('gutenbergSlick');
+    document.dispatchEvent( event );
 
     jsx = [
       /*#__PURE__*/ React.createElement(

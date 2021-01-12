@@ -5,7 +5,7 @@ jQuery( document ).ready(
 	}
 );
 
-// Trigger things on Gutenberg edit screen.
+// Trigger things on block rendering.
 document.addEventListener(
 	'gutenbergSlick',
 	function( e ) {
@@ -13,6 +13,22 @@ document.addEventListener(
 	},
 	false
 );
+
+/* Trigger things on Gutenberg edit screen load.
+ * @see: https://github.com/WordPress/gutenberg/issues/8379#issuecomment-518805831
+ *
+*/
+let blockLoaded = false;
+let blockLoadedInterval = setInterval(function() {
+    if (document.getElementById('post-title-0')) {/*post-title-0 is ID of Post Title Textarea*/
+
+		doThings();
+        blockLoaded = true;
+    }
+    if ( blockLoaded ) {
+        clearInterval( blockLoadedInterval );
+    }
+}, 5000);
 
 /*
 Carousel for Testimonials
