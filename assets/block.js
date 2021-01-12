@@ -1,9 +1,7 @@
-"use strict";
 /**
- * @see https://gist.github.com/Shelob9/144055408101e2fdfc4bf34adc85dd04
- *
  * global plugin_reviews_params
  */
+"use strict";
 
 const { __ } = wp.i18n;
 const { serverSideRender: ServerSideRender = wp.components.ServerSideRender } = wp;
@@ -63,10 +61,6 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
     }
 
      function setLayout(value) {
-
-      const onLayoutChange = new Event('gutenbergSlickOnLayoutChange');
-      document.dispatchEvent( onLayoutChange );
-
       setAttributes({
         layout: value
       });
@@ -116,7 +110,7 @@ registerBlockType("plugin-reviews/plugin-reviews-content", {
             ] 
           }),
            /*#__PURE__*/ React.createElement(SelectControl, {
-            label: __( "Ratings Display", "wordpress-reviews" ),
+            label: __( "Display Ratings", "wordpress-reviews" ),
             value: ratingsDisplay,
             onChange: setRatingsDisplay,
             options:  [

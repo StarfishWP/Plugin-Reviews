@@ -44,6 +44,7 @@ add_action( 'wp_print_styles',  array( 'WR_Reviews', 'load_style' ) );
 add_action( 'wp_print_scripts', array( 'WR_Reviews', 'load_script' ) );
 add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_script' ) );
 add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_style' ) );
+add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_block_script' ) );
 
 add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
 
@@ -53,7 +54,6 @@ add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
 register_activation_hook( __FILE__, array( 'WR_Reviews', 'activate' ) );
 
 add_action( 'init', array( 'WR_Reviews', 'register_block' ) );
-add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_assets' ) );
 
 /**
  * Plugin Reviews Shortcode
@@ -66,11 +66,11 @@ add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_assets' ) 
  */
 function plugin_reviews_shortcode( $atts ) {
 
-	$reviews = new WR_Reviews( $atts );
-	$empty 	 = array( trim( "<div class=' wr-grid'></div>" ), trim( "<div class=' wr-carousel'></div>" )  ); 
+	$reviews   = new WR_Reviews( $atts );
+	$empty_div = array( trim( "<div class=' wr-grid'></div>" ), trim( "<div class=' wr-carousel'></div>" )  ); 
 
 	$result = $reviews->get_result();
-	if ( in_array( $result, $empty ) ) {
+	if ( in_array( $result, $empty_div ) ) {
 
 		$result = sprintf(/* translators: %1$s - WordPress.org plugin reviews page.; %2$s - Same.*/
 						wp_kses(
@@ -82,8 +82,8 @@ function plugin_reviews_shortcode( $atts ) {
 								),
 							)
 						),
-						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/',
-						'https://wordpress.org/support/plugin/'. $atts['plugin_slug'] .'/reviews/',
+						'https://wordpress.org/support/plugin/'. esc_attr( $atts['plugin_slug'] ) .'/reviews/',
+						'https://wordpress.org/support/plugin/'. esc_attr( $atts['plugin_slug'] ) .'/reviews/',
 					);
 	}
 
@@ -165,6 +165,24 @@ class WR_Reviews {
 		wp_enqueue_script( 'wr-echo', WR_URL . 'vendor/echo/echo.min.js', array( 'jquery' ), '1.7.3', true );
 		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.5.8', true );
 		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews-src.js', array( 'jquery', 'wr-echo', 'wr-slick' ), WR_VERSION, true );
+	}
+
+	/**
+	 * Load assets on gutenberg area.
+	 *
+	 * @return void.
+	 */
+	public static function load_block_script() {
+		wp_enqueue_script(
+			'plugin-reviews-gutenberg-block',
+			WR_URL . 'assets/block.js',
+			array( 'wp-blocks', 'wp-editor' ),
+			true
+		);
+
+		wp_localize_script( 'plugin-reviews-gutenberg-block', 'plugin_reviews_params', array(
+			'preview_url' => WR_URL . 'images/spinner.gif'
+		) );
 	}
 
 	/**
@@ -349,24 +367,6 @@ class WR_Reviews {
 		);
 
 		return plugin_reviews_shortcode( $attr );
-	}
-
-	/**
-	 * Load assets on gutenberg area.
-	 *
-	 * @return void.
-	 */
-	public static function load_assets() {
-		wp_enqueue_script(
-			'plugin-reviews-gutenberg-block',
-			WR_URL . 'assets/block.js',
-			array( 'wp-blocks', 'wp-editor' ),
-			true
-		);
-
-		wp_localize_script( 'plugin-reviews-gutenberg-block', 'plugin_reviews_params', array(
-			'preview_url' => WR_URL . 'images/spinner.gif'
-		) );
 	}
 
 	/**
