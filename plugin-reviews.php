@@ -42,6 +42,9 @@ add_action( 'plugins_loaded', array( 'WR_Reviews', 'load_plugin_textdomain' ), 1
  */
 add_action( 'wp_print_styles',  array( 'WR_Reviews', 'load_style' ) );
 add_action( 'wp_print_scripts', array( 'WR_Reviews', 'load_script' ) );
+add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_script' ) );
+add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_style' ) );
+add_action( 'enqueue_block_editor_assets', array( 'WR_Reviews', 'load_block_script' ) );
 
 add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
 
@@ -50,6 +53,7 @@ add_shortcode( 'wr_reviews', 'plugin_reviews_shortcode' );
  */
 register_activation_hook( __FILE__, array( 'WR_Reviews', 'activate' ) );
 
+add_action( 'init', array( 'WR_Reviews', 'register_block' ) );
 
 /**
  * Plugin Reviews Shortcode
@@ -62,9 +66,28 @@ register_activation_hook( __FILE__, array( 'WR_Reviews', 'activate' ) );
  */
 function plugin_reviews_shortcode( $atts ) {
 
-	$reviews = new WR_Reviews( $atts );
+	$reviews   = new WR_Reviews( $atts );
+	$empty_div = array( trim( "<div class=' wr-grid'></div>" ), trim( "<div class=' wr-carousel'></div>" )  ); 
 
-	return $reviews->get_result();
+	$result = $reviews->get_result();
+	if ( in_array( $result, $empty_div ) ) {
+
+		$result = sprintf(/* translators: %1$s - WordPress.org plugin reviews page.; %2$s - Same.*/
+						wp_kses(
+							__( 'No reviews found. If you think it\'s an error, check the reviews on <a href="%1$s">%2$s</a>', 'wordpress-reviews' ),
+
+							array(
+								'a'      => array(
+								'href'   => true,
+								),
+							)
+						),
+						'https://wordpress.org/support/plugin/'. esc_attr( $atts['plugin_slug'] ) .'/reviews/',
+						'https://wordpress.org/support/plugin/'. esc_attr( $atts['plugin_slug'] ) .'/reviews/',
+					);
+	}
+
+	return $result;
 }
 
 class WR_Reviews {
@@ -142,6 +165,24 @@ class WR_Reviews {
 		wp_enqueue_script( 'wr-echo', WR_URL . 'vendor/echo/echo.min.js', array( 'jquery' ), '1.7.3', true );
 		wp_enqueue_script( 'wr-slick', WR_URL . 'vendor/slick/slick.min.js', array( 'jquery' ), '1.5.8', true );
 		wp_enqueue_script( 'wr-script', WR_URL . 'plugin-reviews.js', array( 'jquery', 'wr-echo', 'wr-slick' ), WR_VERSION, true );
+	}
+
+	/**
+	 * Load assets on gutenberg area.
+	 *
+	 * @return void.
+	 */
+	public static function load_block_script() {
+		wp_enqueue_script(
+			'plugin-reviews-gutenberg-block',
+			WR_URL . 'assets/block.js',
+			array( 'wp-blocks', 'wp-editor' ),
+			true
+		);
+
+		wp_localize_script( 'plugin-reviews-gutenberg-block', 'plugin_reviews_params', array(
+			'preview_url' => WR_URL . 'images/spinner.gif'
+		) );
 	}
 
 	/**
@@ -266,7 +307,66 @@ class WR_Reviews {
 		}
 
 		$this->result = $this->merge();
+	}
 
+	/**
+	 * Register gutenber block.
+	 *
+	 * @return void.
+	 */
+	public static function register_block() {
+
+		if ( ! function_exists( 'register_block_type' ) ) {
+			return;
+		}
+		$defaults  = self::default_attributes();
+
+		$attributes = [
+			'pluginSlug'       => [
+				'type' => 'string',
+			],
+			'layout' => [
+				'type' => 'string',
+			],
+			'ratingsLimit'    => [
+				'type' => 'int',
+			],
+			'ratingsDisplay'  => [
+				'type' => 'string',
+			],
+			'sortBy'    => [
+				'type' => 'string',
+			],
+		];
+
+		register_block_type(
+			'plugin-reviews/plugin-reviews-content',
+			array(
+				'attributes' 	  => $attributes,
+				'editor_script'   => 'plugin-reviews-gutenberg-block',
+				'render_callback' => [ 'WR_Reviews', 'view_reviews' ],
+			)
+		);
+	}
+
+	/**
+	 * Get reviews in the Gutenberg block.
+	 *
+	 * @param array $attr Attributes passed by the Gutenberg block.
+	 *
+	 * @return string
+	 */
+	public static function view_reviews( $attr ) {
+
+		$attr = array( 
+			'plugin_slug' => isset( $attr['pluginSlug'] ) ? $attr['pluginSlug'] : 'plugin-reviews',
+			'limit' 	  => isset( $attr['ratingsLimit'] ) ? $attr['ratingsLimit'] : 10,
+			'rating'      => isset( $attr['ratingsDisplay'] ) ? $attr['ratingsDisplay'] : 'all',
+			'layout'      => isset( $attr['layout'] ) ? $attr['layout'] : 'grid',
+			'sort' 		  => isset( $attr['sortBy'] ) ? $attr['sortBy'] : 'DESC',
+		);
+
+		return plugin_reviews_shortcode( $attr );
 	}
 
 	/**
